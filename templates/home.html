@@ -1,104 +1,95 @@
 {% extends "base.html" %}
-{% load static i18n %}
+
+{% load static %}
+
+    {% block title %} Be-Py - Belajar Pemrograman Python {% endblock title %}
+
+  {% block custom_css %}
+  <link href="{% static 'css/be-py-style.css' %}" rel="stylesheet">
+  
+  
+  
+  {% endblock custom_css %}
 {% block content %}
-	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url({% static 'images/bg.jpg' %});" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
+	<!-- Navigation-->
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="display-t">
-						<div class="display-tc animate-box" data-animate-effect="fadeIn">
-							<h1>Belajar Pemrograman <i>Python</i></h1>
-							<p>
-								<a class="btn btn-primary btn-lg btn-learn" href="#"></icon>Mulai Belajar</a>
-								<a class="btn btn-primary btn-lg btn-video" href="#fh5co-explore">Kenapa Python?</a>
-							</p>
-						</div>
-					</div>
-				</div>
+			<a class="navbar-brand js-scroll-trigger" href="#page-top">Be-Py</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				Menu
+				<i class="fas fa-bars ml-1"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav text-uppercase ml-auto">
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+				</ul>
 			</div>
+		</div>
+	</nav>
+	<!-- Masthead-->
+	<header class="masthead">
+		<div class="container">
+			
+			<div class="masthead-heading text-uppercase">Belajar Pemrograman Python</div>
+			<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Mulai</a>
 		</div>
 	</header>
-
-	<!-- <div id="fh5co-counter" class="fh5co-counters">
+	<!-- why-->
+	<section class="page-section">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-3 text-center animate-box">
-					<span class="fh5co-counter js-counter" data-from="0" data-to="40356" data-speed="5000" data-refresh-interval="50"></span>
-					<span class="fh5co-counter-label">Students</span>
-				</div>
-				<div class="col-md-3 text-center animate-box">
-					<span class="fh5co-counter js-counter" data-from="0" data-to="30290" data-speed="5000" data-refresh-interval="50"></span>
-					<span class="fh5co-counter-label">Courses</span>
-				</div>
-				<div class="col-md-3 text-center animate-box">
-					<span class="fh5co-counter js-counter" data-from="0" data-to="2039" data-speed="5000" data-refresh-interval="50"></span>
-					<span class="fh5co-counter-label">Instructor</span>
-				</div>
-				<div class="col-md-3 text-center animate-box">
-					<span class="fh5co-counter js-counter" data-from="0" data-to="997585" data-speed="5000" data-refresh-interval="50"></span>
-					<span class="fh5co-counter-label">Earnings</span>
+			<div class="text-center">
+				<h2 class="section-heading text-uppercase">Kenapa Pemrograman Python?</h2>
+			</div>       
+		</div>
+		
+		
+		<div class="container">
+			<div class="row align-items-center">
+			<div class="col-lg-6 order-lg-2">
+				<div class="p-5">
+					<img class="img-fluid" src="{% static 'images/python syntax.png' %}">
+					source: <a target="_blank" href="https://www.codeschool.com/blog/2016/01/27/why-python/">
+										Code School
+									</a>
 				</div>
 			</div>
-		</div>
-	</div> -->
-
-	<div id="fh5co-explore">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-					<h2>Kenapa Pemrograman Python?</h2>
+			<div class="col-lg-6 order-lg-1">
+				<div class="p-5">
+					<h3>Syntax Mudah Dibaca</h3>
 					<p>
-						Pemrograman dengan python memiliki beberapa kelebihan: syntax mudah dibaca,
-						popularitas tinggi, implementasi di banyak bidang dan eksistensi.
+						Seringkali programmer lupa
+						dengan syntax coding yang sudah diimplementasi dan harus membaca ulang programnya.
+
+						Dengan syntax yang mudah dibaca, memudahkan programmer untuk memahami kembali
+						coding yang pernah ditulis.
+
+						Selain itu, syntax mudah dibaca menjadikan
+						proses pembelajaran bahasa python lebih mudah. Oleh karena itu, syntax python lebih bersahabat untuk
+						orang yang baru belajar pemrograman.
 					</p>
 				</div>
 			</div>
-		</div>
-
-		<div class="fh5co-explore fh5co-explore1">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-push-4 animate-box">
-						<img class="img-responsive" src="{% static 'images/python syntax.png' %}" alt="work">
-						source: <a target="_blank" href="https://www.codeschool.com/blog/2016/01/27/why-python/">
-											Code School
-										</a>
-					</div>
-					<div class="col-md-4 col-md-pull-8 animate-box">
-						<div class="mt">
-							<h3>Syntax Mudah Dibaca</h3>
-							<p>
-								Seringkali programmer lupa
-								dengan syntax coding yang sudah diimplementasi dan harus membaca ulang programnya.
-
-								Dengan syntax yang mudah dibaca, memudahkan programmer untuk memahami kembali
-								coding yang pernah ditulis.
-
-								Selain itu, syntax mudah dibaca menjadikan
-								proses pembelajaran bahasa python lebih mudah. Oleh karena itu, syntax python lebih bersahabat untuk
-								orang yang baru belajar pemrograman.
-							</p>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
-
-		<div class="fh5co-explore fh5co-explore1">
-			<div class="container">
-				<div class="row">
-
-					<div class="col-md-8 animate-box">
-						<img class="img-responsive" src="{% static 'images/growth_major_languages.png' %}" alt="work">
-						source: <a target="_blank" href="https://stackoverflow.blog/2017/09/06/incredible-growth-python/">
-											Stack Overflow
-										</a>
-					</div>
-
-					<div class="col-md-4 animate-box">
-						<div class="mt">
-							<h3>Popularitas Tinggi</h3>
+		
+		
+		<div class="container">
+			<div class="row align-items-center">
+			<div class="col-lg-6">
+				<div class="p-5">
+				 <img class="img-fluid" src="{% static 'images/growth_major_languages.png' %}">
+					source: <a target="_blank" href="https://stackoverflow.blog/2017/09/06/incredible-growth-python/">
+										Stack Overflow
+									</a>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="p-5">
+					<h3>Popularitas Tinggi</h3>
 							<p>
 								Populer artinya banyak orang yang menggunakan. Saat menemukan error atau
 								ingin memecahkan masalah dengan python, jawaban <i>googling</i> yang ditemukan
@@ -106,329 +97,207 @@
 								masalah yang sama dan bisa memecahkannya. Hal ini akan meningkatkan produktivitas programmer
 								dalam mengembangkan aplikasi.
 							</p>
-						</div>
 					</div>
-				</div>
+			</div>
 			</div>
 		</div>
 
-		<div class="fh5co-explore fh5co-explore1">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-push-4 animate-box">
-						<img class="img-responsive" height="50" src="{% static 'images/python-infographic.png' %}" alt="work">
-						source: <a target="_blank" href="https://hackbrightacademy.com/blog/a-beginners-guide-to-python/what-is-python-programming-infographic/">
-											Hackbright Academy
-										</a>
-					</div>
-					<div class="col-md-4 col-md-pull-8 animate-box">
-						<div class="mt">
-							<h3>Implementasi di Banyak Bidang</h3>
-
-							<ul class="list-nav">
-								Python bisa digunakan untuk mengembangkan:
-								<li><i class="icon-check2"></i>aplikasi berbasis web dan desktop</li>
-								<li><i class="icon-check2"></i>data science</li>
-								<li><i class="icon-check2"></i>machine learning</li>
-								<li><i class="icon-check2"></i>image recognition</li>
-								<li><i class="icon-check2"></i>automated test</li>
-								<li><i class="icon-check2"></i>aplikasi geo location dan lain lain</li>
-							</ul>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="fh5co-explore">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 animate-box">
-						<img class="img-responsive" src="{% static 'images/python-infographic2.png' %}" alt="work">
-						source: <a target="_blank" href="https://hackbrightacademy.com/blog/a-beginners-guide-to-python/what-is-python-programming-infographic/">
-											Hackbright Academy
-										</a>
-					</div>
-
-					<div class="col-md-4 animate-box">
-						<div class="mt">
-							<h3>Eksistensi</h3>
-							<p>
-								Pemrograman python banyak digunakan oleh perusahaan besar seprti
-								<strong>google</strong>, <strong>dropbox</strong>, <strong>instagram</strong> dan masih banyak lagi.
-								Selain itu, banyak framework favorit programmer yang dibuat dengan python. Seperti:
-								<strong>django</strong> (aplikasi web), <strong>flask</strong> (aplikasi web),
-								<strong>odoo</strong> (aplikasi erp),
-								<strong>numpy</strong> (aplikasi data science), <strong>pandas</strong> (aplikasi data science),
-								<strong>tensorflow</strong> (aplikasi machine learning) dan masih banyak lagi yang lainnya.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- <div class="fh5co-explore">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-pull-1 animate-box">
-						<img class="img-responsive" src="{% static 'images/work_1.png' %}" alt="work">
-					</div>
-					<div class="col-md-4 animate-box">
-						<div class="mt">
-							<div>
-								<h4><i class="icon-user"></i>Real Project For Real Solutions</h4>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia. </p>
-							</div>
-							<div>
-								<h4><i class="icon-video2"></i>Real Project For Real Solutions</h4>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-							</div>
-							<div>
-								<h4><i class="icon-shield"></i>Real Project For Real Solutions</h4>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia. </p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> -->
-
-
-	</div>
-
-	<div id="fh5co-project" class="fh5co-bg-section">
 		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Showcase of A Finish Projects</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+			<div class="row align-items-center">
+			<div class="col-lg-6 order-lg-2">
+				<div class="p-5">
+					<img class="img-fluid" height="50" src="{% static 'images/python-infographic.png' %}">
+					source: <a target="_blank" href="https://blog.hackbrightacademy.com/blog/a-beginners-guide-to-python/">
+										Hackbright Academy
+									</a>
 				</div>
 			</div>
+			<div class="col-lg-6 order-lg-1">
+				<div class="p-5">
+					<h3>Implementasi di Banyak Bidang</h3>
+					Python bisa digunakan untuk mengembangkan:
+					<ul class = "list-unstyled">
+						
+						<li><i class="bi bi-check"></i>aplikasi berbasis web dan desktop</li>
+						<li><i class="bi bi-check"></i>data science</li>
+						<li><i class="bi bi-check"></i>machine learning</li>
+						<li><i class="bi bi-check"></i>image recognition</li>
+						<li><i class="bi bi-check"></i>automated test</li>
+						<li><i class="bi bi-check"></i>aplikasi geo location dan lain lain</li>
+					</ul>
+				
+				</div>
+			</div>
+			</div>
 		</div>
-		<div class="container-fluid proj-bottom">
+
+		<div class="container">
+			<div class="row align-items-center">
+			<div class="col-lg-6">
+				<div class="p-5">
+					<img class="img-fluid" src="{% static 'images/python-infographic2.png' %}">
+					source: <a target="_blank" href="https://blog.hackbrightacademy.com/blog/a-beginners-guide-to-python/">
+										Hackbright Academy
+									</a>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="p-5">
+					<h3>Eksistensi</h3>
+						<p>
+							Pemrograman python banyak digunakan oleh perusahaan besar seprti
+							<strong>google</strong>, <strong>dropbox</strong>, <strong>instagram</strong> dan masih banyak lagi.
+							Selain itu, banyak framework favorit programmer yang dibuat dengan python. Seperti:
+							<strong>django</strong> (aplikasi web), <strong>flask</strong> (aplikasi web),
+							<strong>odoo</strong> (aplikasi erp),
+							<strong>numpy</strong> (aplikasi data science), <strong>pandas</strong> (aplikasi data science),
+							<strong>tensorflow</strong> (aplikasi machine learning) dan masih banyak lagi yang lainnya.
+						</p>
+				</div>
+			</div>
+			</div>
+		</div>
+
+		
+	</section>
+	<!-- Portfolio Grid-->
+	<section class="page-section bg-light">
+		<div class="container">
+			<div class="text-center">
+				<h2 class="section-heading text-uppercase">Hasil Karya</h2>
+				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+			</div>
 			<div class="row">
-				<div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-					<a href="#"><img src="{% static 'images/project-1.jpg' %}" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-						<h3>Web Master</h3>
-						<span>View Course</span>
-					</a>
+  
+				<div class="col-md-4 mb-5">
+				  <div class="card h-100">
+					<img class="card-img-top lazy-image" alt="" src="{% static 'images/personal.PNG' %}">
+					<div class="card-body">
+					  <h4 class="card-title">AlvianDK's Personal Website</h4>
+					  <p class="card-text">Personal website is used by software developers to demonstrate their abilities and increase sell value. A personal website usually contains …</p>
+					</div>
+					<div class="card-footer">
+					  <a href="/showcase-project/alvians-personal-website/" class="btn btn-primary">Find Out More!</a>
+					</div>
+				  </div>
 				</div>
-				<div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-					<a href="#"><img src="{% static 'images/project-2.jpg' %}" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-						<h3>Virtual Assistant</h3>
-						<span>View Course</span>
-					</a>
-				</div>
-				<div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-					<a href="#"><img src="{% static 'images/project-3.jpg' %}" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-						<h3>Read Bible</h3>
-						<span>View Course</span>
-					</a>
-				</div>
-				<div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-					<a href="#"><img src="{% static 'images/project-9.jpg' %}" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-						<h3>Programming</h3>
-						<span>View Course</span>
-					</a>
-				</div>
-				<div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-					<a href="#"><img src="{% static 'images/project-5.jpg' %}" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-						<h3>Technician</h3>
-						<span>View Course</span>
-					</a>
-				</div>
-				<div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-					<a href="#"><img src="{% static 'images/project-6.jpg' %}" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-						<h3>Photography</h3>
-						<span>View Course</span>
-					</a>
-				</div>
+				
+				
 			</div>
 		</div>
+	</section>
+	<!-- About-->
+	<section class="page-section">
 		<div class="container">
+			<div class="text-center">
+				<h2 class="section-heading text-uppercase">Testimoni</h2>
+				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+			</div>
 			<div class="row">
-				<div class="features">
-					<div class="col-md-4 animate-box">
-						<h4>We have coolest features of this course</h4>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.  </p>
-					</div>
-					<div class="col-md-4 animate-box">
-						<h4>Great teachers that we have</h4>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.  </p>
-					</div>
-					<div class="col-md-4 animate-box">
-						<h4>Steps by steps turorial session</h4>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.  </p>
+				<div class="col-lg-4">
+					<div class="team-member">
+						<img class="mx-auto rounded-circle" src="{% static 'assets/img/team/1.jpg' %}" alt="" />
+						<h4>Kay Garland</h4>
+						<p class="text-muted">Lead Designer</p>
+						<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
 					</div>
 				</div>
-				<div class="col-md-12 text-center animate-box">
-					<p><a class="btn btn-primary btn-lg btn-learn" href="#">Create A Free Course</a></p>
+				<div class="col-lg-4">
+					<div class="team-member">
+						<img class="mx-auto rounded-circle" src="{% static 'assets/img/team/2.jpg' %}" alt="" />
+						<h4>Larry Parker</h4>
+						<p class="text-muted">Lead Marketer</p>
+						<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- <div id="fh5co-steps">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Mulai Belajar</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-				</div>
-			</div>
-
-			<div class="row bs-wizard animate-box" style="border-bottom:0;">
-
-				<div class="col-xs-3 bs-wizard-step complete">
-					<div class="text-center bs-wizard-stepnum"><h4>Step 1</h4></div>
-					<div class="progress"><div class="progress-bar"></div></div>
-					<a href="#" class="bs-wizard-dot"></a>
-					<div class="bs-wizard-info text-center"><p>Create A Free Course</p></div>
-				</div>
-
-				<div class="col-xs-3 bs-wizard-step active">
-					<div class="text-center bs-wizard-stepnum"><h4>Step 2</h4></div>
-					<div class="progress"><div class="progress-bar"></div></div>
-					<a href="#" class="bs-wizard-dot"></a>
-					<div class="bs-wizard-info text-center"><p>Upload Content</p></div>
-				</div>
-
-				<div class="col-xs-3 bs-wizard-step disabled">
-					<div class="text-center bs-wizard-stepnum"><h4>Step 3</h4></div>
-					<div class="progress"><div class="progress-bar"></div></div>
-					<a href="#" class="bs-wizard-dot"></a>
-					<div class="bs-wizard-info text-center"><p>Make Your Course Beautiful</p></div>
-				</div>
-
-				<div class="col-xs-3 bs-wizard-step disabled">
-					<div class="text-center bs-wizard-stepnum"><h4>Step 4</h4></div>
-					<div class="progress"><div class="progress-bar"></div></div>
-					<a href="#" class="bs-wizard-dot"></a>
-					<div class="bs-wizard-info text-center"><p>Start Making Money</p></div>
-				</div>
-			</div>
-
-		</div>
-	</div> -->
-
-	<div id="fh5co-testimonial">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-					<h2>Cerita Sukses</h2>
+				<div class="col-lg-4">
+					<div class="team-member">
+						<img class="mx-auto rounded-circle" src="{% static 'assets/img/team/3.jpg' %}" alt="" />
+						<h4>Diana Petersen</h4>
+						<p class="text-muted">Lead Developer</p>
+						<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-10 col-md-offset-1">
-					<div class="row animate-box">
-						<div class="owl-carousel owl-carousel-fullwidth">
-							<div class="item">
-								<div class="testimony-slide active text-center">
-									<figure>
-										<img src="{% static 'images/person_1.jpg' %}" alt="user">
-									</figure>
-									<span>Jean Doe, via <a href="#" class="twitter">Twitter</a></span>
-									<blockquote>
-										<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-									</blockquote>
-								</div>
-							</div>
-							<div class="item">
-								<div class="testimony-slide active text-center">
-									<figure>
-										<img src="{% static 'images/person_2.jpg' %}" alt="user">
-									</figure>
-									<span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-									<blockquote>
-										<p>&ldquo;Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-									</blockquote>
-								</div>
-							</div>
-							<div class="item">
-								<div class="testimony-slide active text-center">
-									<figure>
-										<img src="{% static 'images/person_3.jpg' %}" alt="user">
-									</figure>
-									<span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-									<blockquote>
-										<p>&ldquo;Far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-									</blockquote>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
 			</div>
 		</div>
-	</div>
-
-	<div id="fh5co-blog" class="fh5co-bg-section">
+	</section>
+	
+	<!-- Contact-->
+	<section class="page-section" id="contact">
 		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Postingan Terbaru</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-				</div>
+			<div class="text-center">
+				<h2 class="section-heading text-uppercase">Contact Us</h2>
+				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
 			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#"><img class="img-responsive" src="{% static 'images/project-4.jpg' %}" alt=""></a>
-						<div class="blog-text">
-							<h3><a href=""#>Why Python?</a></h3>
-							<span class="posted_on">Nov. 15th</span>
-							<span class="comment"><a href="">21<i class="icon-speech-bubble"></i></a></span>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<a href="#" class="btn btn-primary">Read More</a>
+			<form id="contactForm" name="sentMessage" novalidate="novalidate">
+				<div class="row align-items-stretch mb-5">
+					<div class="col-md-6">
+						<div class="form-group">
+							<input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name." />
+							<p class="help-block text-danger"></p>
+						</div>
+						<div class="form-group">
+							<input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address." />
+							<p class="help-block text-danger"></p>
+						</div>
+						<div class="form-group mb-md-0">
+							<input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number." />
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group form-group-textarea mb-md-0">
+							<textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
+							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#"><img class="img-responsive" src="{% static 'images/project-2.jpg' %}" alt=""></a>
-						<div class="blog-text">
-							<h3><a href=""#>Why Django?</a></h3>
-							<span class="posted_on">Nov. 15th</span>
-							<span class="comment"><a href="">21<i class="icon-speech-bubble"></i></a></span>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<a href="#" class="btn btn-primary">Read More</a>
-						</div>
-					</div>
+				<div class="text-center">
+					<div id="success"></div>
+					<button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send Message</button>
 				</div>
-				<div class="col-lg-4 col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#"><img class="img-responsive" src="{% static 'images/project-3.jpg' %}" alt=""></a>
-						<div class="blog-text">
-							<h3><a href=""#>How to Be Good Developer</a></h3>
-							<span class="posted_on">Nov. 15th</span>
-							<span class="comment"><a href="">21<i class="icon-speech-bubble"></i></a></span>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<a href="#" class="btn btn-primary">Read More</a>
-						</div>
-					</div>
-				</div>
-			</div>
+			</form>
 		</div>
-	</div>
-
-
-	<div id="fh5co-started" style="background-image:url({% static 'images/img_bg_2.jpg' %});">
-		<div class="overlay"></div>
+	</section>
+	<!-- Footer-->
+	<footer class="footer py-4">
 		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Lets Get Started</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+			<div class="row align-items-center">
+				<div class="col-lg-4 text-lg-left">Copyright © Your Website 2020</div>
+				<div class="col-lg-4 my-3 my-lg-0">
+					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
 				</div>
-			</div>
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<p><a href="#" class="btn btn-default btn-lg">Create A Free Account</a></p>
+				<div class="col-lg-4 text-lg-right">
+					<a class="mr-3" href="#!">About</a>
+					<a class="mr-3" href="#!">Contact</a>
+					<a class="mr-3" href="#!">Privacy Policy</a>
+					<a href="#!">Terms of Use</a>
 				</div>
 			</div>
 		</div>
-	</div>
+	</footer>
 
 {% endblock content %}
+
+
+{% block custom_js %}
+<!-- Contact form JS-->
+<script src="{% static 'assets/mail/jqBootstrapValidation.js' %}"></script>
+<script src="{% static 'assets/mail/contact_me.js' %}"></script>
+
+<!-- Custom JavaScript for this theme -->
+<script src="{% static 'js/be-py-scripts.js' %}"></script>
+
+
+{% endblock custom_js %}
