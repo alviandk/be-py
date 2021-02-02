@@ -55,7 +55,9 @@ INSTALLED_APPS = [
     'auths',
     'course',
     'enrollment',
+    'portfolio',
     'static_page',
+    'testimonial',
     'user'
 ]
 
