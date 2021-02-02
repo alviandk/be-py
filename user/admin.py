@@ -2,10 +2,14 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import DplUser
+from .models import DplUser, UserProfile
 
+
+class UserProfileInline(admin.StackedInline):
+    model = UserProfile
 
 class CustomUserAdmin(UserAdmin):
+    inlines = UserAdmin.inlines + [UserProfileInline,]
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = DplUser

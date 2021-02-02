@@ -22,13 +22,18 @@ class DplUser(AbstractBaseUser, PermissionsMixin):
         return self.email
 
 
-# class UserProfile(models.Model):
-#     user = models.OneToOneField(DplUser, related_name='profile')
-#     name = models.CharField(max_length=128)
-#     age_joined = models.PositiveIntegerField()
-#     interest = models.ManyToManyField()
-#     last_degree = models.ForeignKey(DplUser, related_name='profiles')
-#     city_domicile = models.ForeignKey(DplUser, related_name='profiles')
+class UserProfile(models.Model):
+    user = models.OneToOneField(
+            DplUser, 
+            on_delete=models.CASCADE, 
+            related_name='profile'
+    )
+    name = models.CharField(max_length=128)
+    age_joined = models.PositiveIntegerField()
+    profile_picture = models.ImageField()
+    # interest = models.ManyToManyField()
+    # last_degree = models.ForeignKey(DplUser, related_name='profiles')
+    # city_domicile = models.ForeignKey(DplUser, related_name='profiles')
 
-#     def __str__(self):
-#         return f"{self.user.email}'s profile"
+    def __str__(self):
+        return f"{self.user.email}'s profile"
