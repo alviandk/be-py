@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load staticfiles%}
+{% block title %}BE-PY | Cerita Sukses{% endblock %}
+
+{% block content %}
+
+
+<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url({% static 'images/cerita sukses.jpg' %});" data-stellar-background-ratio="0.5">
+	<div class="overlay">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+							<h1>Pencapaian</h1>
+							<h2>Kumpulan cerita sukses, prestasi atau pun pekerjaan yang didapat oleh para user Be-Py dengan Python</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+
+
+
+<div id="fh5co-blog">
+	<div class="overlay">
+		<div class="container">
+			<div class="row">
+				{% for story in stories %}
+				<div class="col-md-4" style="padding:20px">
+					<div class="testimony-slide active text-center">
+						<figure>
+						<a href="/story/detail/{{story.slug}}">
+							<img class="img-circle" src="{{ story.image.url }}" style="height:125px; width:125px" alt="">
+						</a>
+						</figure>
+						<div class="blog-text">
+							<div style="height: 200px">
+								<center>
+									<h3>
+										<a href="/story/detail/{{story.slug}}">{{story.title}}</a>
+									</h3>
+									<h5 style='margin-top:-15px;'>
+										{% for user in story.users.all %}
+											{{ user }}{% if not forloop.last %}, {% endif %}
+										{% empty %}
+										  -
+										{% endfor %}
+									</h5>
+									<p>
+										<i>&ldquo;{{ story.quote }}&rdquo;</i>
+									</p>
+								</center>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

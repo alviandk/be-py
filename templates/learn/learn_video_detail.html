@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}BE-PY | Belajar | Video{% endblock %}
+{% block content %}
+  <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url({{ course.image.url }});" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+							<strong>{{ course.name }}</strong>
+							<div class="row">
+								<div class="col-xs-5 calendar">
+									<h2><i class="icon-bar-graph" style="font-size: 30px; position: relative; top: 7px; right: 5px;"></i>{{ course.get_level_display }}</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- end of row-->
+		</div> <!-- end of Container-->
+	</header>
+
+	<nav class="breadcrumb" role="navigation">
+		<a class="breadcrumb-item beranda" href="#">Beranda</a>
+		<a class="breadcrumb-item" href="#">Belajar</a>
+		<span class="breadcrumb-item active">Judul</span>
+	</nav>
+	<div id="fh5co-blog">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-4">
+					<div class="fh5co-blog animate-box">
+						<div class="blog-text description">
+							<!--social media share-->
+							<div class="row" style="margin-bottom: 30px;">
+								<div class="btn-group btn-group-justified col-lg-12 col-sm-12 col-xs-12" role="group">
+									<a href="" class="btn btn-blue bookmark"><i class="icon-star"></i> Bookmark</a>
+									<div class="btn-group" role="group">
+										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<i class="icon-share"></i>   Share
+										</button>
+										<ul class="dropdown-menu social-share">
+											<li><a class="btn btn-twitter" href="#"><i class="icon-twitter"></i></a></li>
+											<li><a class="btn btn-facebook" href="#"><i class="icon-facebook"></i></a></li>
+											<li><a class="btn btn-google"href="#"><i class="icon-google"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<h3>Deskripsi Materi</h3>
+							<p>{{ course.description | safe }}</p>
+              {% if course.tags.all %}
+                <!--tag-->
+                <div class="tags-list">
+                Tags :
+                {% for tag in course.tags.all %}
+                  <a href="#" rel="tag">{{ tag|title }}</a>
+                {% endfor %}
+                </div>
+                <!--END tag-->
+              {% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8 col-md-8">
+					<div class="fh5co-blog animate-box">
+						<div class="blog-text program-desc">
+							<h3>Program Kami</h3>
+							<table id="video-table" class="table table-hover video-table">
+								<tbody>
+								{% for part in course.parts.all %}
+									<tr class="video">
+										<td class="video-index col-lg-1 col-xs-1"></td>
+										<td class="video-thumbnail col-lg-2 col-xs-2">
+											<a href="#" class=""><img class="img-responsive" src="https://img.youtube.com/vi/{{ part.youtube_id }}/0.jpg"></a>
+										</td>
+										<td class="video-title col-lg-8 col-xs-8"><a href="{% url 'learn:course_video_part' id=part.id %}" >{{ part.title }}</a></td>
+										<td class="video-time col-lg-1 col-xs-1">{{ part.youtube_duration }}</td>
+									</tr>
+								{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+{% endblock %}
+

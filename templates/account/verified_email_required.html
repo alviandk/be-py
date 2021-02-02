@@ -1,0 +1,26 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Verifikasi Alamat E-mail Anda" %}{% endblock %}
+
+{% block inner %}
+<h1>{% trans "Verifikasi Alamat E-mail Anda" %}</h1>
+
+{% url 'account_email' as email_url %}
+
+<p>{% blocktrans %}Bagian dari situs ini mengharuskan kami untuk 
+memverifikasi bahwa Anda benar-benar pemilik e-mail ini. Untuk itu, 
+kami mengharuskan Anda untuk melakukan verifikasi kepemilikan alamat 
+e-mail Anda.{% endblocktrans %}</p>
+
+<p>{% blocktrans %}Kami telah mengirimkan e-mail verifikasi. 
+ link yang tersedia untuk proses pendaftaran. 
+ Silahkan hubungi kami apabila Anda tidak menerimanya 
+ dalam beberapa saat.{% endblocktrans %}</p>
+
+<p>{% blocktrans %}<strong>Catatan:</strong> Anda tetap dapat <a href="{{ email_url }}">mengubah alamat e-mail Anda</a>.{% endblocktrans %}</p>
+
+
+{% endblock %}
+

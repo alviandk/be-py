@@ -1,0 +1,35 @@
+{% load socialaccount %}
+
+{% get_providers as socialaccount_providers %}
+<div class="row">
+    <div class="col-sm-5 col-sm-offset-3 social-buttons">
+{% for provider in socialaccount_providers %}
+	{% if provider.id == "openid" %}
+		{% for brand in provider.get_brands %}
+			<li>
+				<a title="{{brand.name}}"
+				class="socialaccount_provider {{provider.id}} {{brand.id}}"
+				href="{% provider_login_url provider.id openid=brand.openid_url process=process %}"
+				>{{brand.name}}</a>
+			</li>
+		{% endfor %}
+	{% endif %}
+
+		{% if provider.name == 'Facebook' %}
+			<a class="btn btn-block btn-social btn-facebook">
+				<i class="icon-facebook"></i> Facebook
+			</a>
+		{% elif provider.name == 'Google' %}
+			<a class="btn btn-block btn-social btn-google-plus">
+				<i class="icon-google"></i> Google
+			</a>
+		{% else %}
+			<li>
+				<a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}"
+				href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">{{provider.name}}</a>
+			</li>
+		{% endif %}
+
+
+{% endfor %}
+</div></div>

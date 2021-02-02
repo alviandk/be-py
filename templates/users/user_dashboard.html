@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dashboard | {{ request.user.username }}{% endblock %}
+
+{% block content %}
+	<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url({% static 'images/project-7.jpg'%});" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+							<strong>{{ request.user.username }}</strong>
+							<div class="row">
+								<div class="col-xs-5 calendar">
+										<a href="#"><i class="icon-facebook-with-circle" style="font-size: 30px; position: relative; top: 7px; right: -5px;"></i></a>
+										<a href="#"><i class="icon-twitter-with-circle" style="font-size: 30px; position: relative; top: 7px; right: -5px;"></i></a>
+										<a href="#"><i class="icon-google-with-circle" style="font-size: 30px; position: relative; top: 7px; right: -5px;"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- end of row-->
+		</div> <!-- end of Container-->
+	</header
+
+	<nav class="breadcrumb" role="navigation">
+		<a class="breadcrumb-item beranda" href="{% url 'home'%}">Beranda</a>
+		<span class="breadcrumb-item active">Dashboard</span>
+	</nav>
+
+	<div id="fh5co-blog">
+		<div class="container">
+			<div class="row">
+				<h2 class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 text-center">Progres Belajar Anda</h2>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-4">
+					<div class="fh5co-blog animate-box">
+						<a href="#"><img class="img-responsive" src="{% static 'images/project-7.jpg'%}" alt="" style="height: 250px"></a>
+						<div class="beginner">
+                <h3 style="height:80px"><a href="#">Dasar - Dasar Python</a></h3>
+                <div class="python circle">
+                  <strong></strong>
+                </div>
+                <a href="#" class="btn btn-group-justified btn-blue">Lanjutkan Belajar</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4">
+					<div class="fh5co-blog animate-box">
+						<a href="#"><img class="img-responsive" src="{% static 'images/project-4.jpg'%}" alt="" style="height: 250px"></a>
+						<div class="medium">
+							<h3 style="height:80px"><a href="#">Aplikasi SPK Menggunakan Django</a></h3>
+							<div class="django circle">
+								<strong></strong>
+							</div>
+							<a href="#" class="btn btn-group-justified btn-blue">Lanjutkan Belajar</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4">
+					<div class="fh5co-blog animate-box">
+						<a href="#"><img class="img-responsive" src="{% static 'images/work_1.jpg'%}" alt="" style="height: 250px"></a>
+						<div class="expert">
+							<h3 style="height:80px"><a href="#">Mesin Pencari Menggunakan Elasticsearch</a></h3>
+							<div class="elastic circle">
+								<strong></strong>
+							</div>
+							<a href="#" class="btn btn-group-justified btn-blue">Lanjutkan Belajar</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <!--<div class="fh5co-counters" style="padding-top:200px;">
+        <div class="container" >
+            <div class="row">
+
+                <div class="col-sm-12">
+                    <h2>{{ request.user.username }}</h2>
+                    {% if request.user.name %}
+                      <p>{{ request.user.name }}</p>
+                    {% endif %}
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>-->
+{% endblock content %}
+

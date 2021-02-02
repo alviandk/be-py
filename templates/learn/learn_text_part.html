@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}BE-PY | Belajar | Text{% endblock %}
+{% block content %}
+  <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url({{ part.course.image.url }});" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+							<strong>{{ part.course.name }}</strong>
+							<div class="row">
+								<div class="col-xs-5 calendar">
+									<h2><i class="icon-bar-graph" style="font-size: 30px; position: relative; top: 7px; right: 5px;"></i>{{ part.course.get_level_display }}</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- end of row-->
+		</div> <!-- end of Container-->
+	</header>
+
+	<nav class="breadcrumb" role="navigation">
+		<a class="breadcrumb-item beranda" href="#">Beranda</a>
+		<a class="breadcrumb-item" href="#">Belajar</a>
+		<span class="breadcrumb-item active">Judul</span>
+	</nav>
+	<div id="fh5co-blog">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-4">
+					<div class="fh5co-blog animate-box">
+						<div class="blog-text description">
+							<!--social media share-->
+							<div class="row" style="margin-bottom: 30px;">
+								
+							</div>							
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8 col-md-8">
+					<div class="fh5co-blog animate-box">
+						<div class="blog-text program-desc">
+							<h3></h3>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+{% endblock %}
+

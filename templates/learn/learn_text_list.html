@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}BE-PY | Belajar | Teks{% endblock %}
+{% block content %}
+
+
+<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url({% static 'images/img_bg_2.jpg' %});" data-stellar-background-ratio="0.5">
+	<div class="overlay">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+							<h1>Belajar Berbasis Teks</h1>
+							<!--<h2>Free html5 templates Made by <a href="http://freehtml5.co" target="_blank">freehtml5.co</a></h2>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<div id="fh5co-blog">
+        <div class="container">
+            <div class="row">
+            {% if courses %}
+                {% for course in courses %}
+                    <div class="col-lg-4 col-md-4">
+                        <div class="fh5co-blog animate-box">
+                            <a href="{% url 'learn:course_text_detail' slug=course.slug %}">
+                            {% if course.image %}
+                            <img class="img-responsive" src="{{course.image.url}}" alt="" style="height: 250px">
+                            {% endif %}
+                            </a>
+                            <div class="{% if course.level == 'P' %}beginner{% elif course.level == 'M' %}medium{% else %}expert{% endif %}" ><!-- section level beginner-->
+                                <div style="height: 220px">
+                                    <h3 style="height:80px"><a href="{% url 'learn:course_text_detail' slug=course.slug %}">{{ course.name }}</a></h3>
+                                    <span class="level"><i class="icon-bar-graph"></i>{{ course.get_level_display }}</span>
+                                    <p>{{ course.description | safe |truncatewords:10 }}</p>
+                                </div>
+                                <div class="row">
+                                  <div class="btn-group btn-group-justified col-lg-12 col-sm-12 col-xs-12" role="group" style="margin-left: 0px;">
+                                    <a href="{% url 'learn:course_text_detail' slug=course.slug %}" class="btn btn-primary"><i class="icon-open-book"></i> Baca</a>
+                                    <a href="" class="btn btn-blue bookmark"><i class="icon-bookmark"></i> Bookmark</a>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+            <p> No Course. </p>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
