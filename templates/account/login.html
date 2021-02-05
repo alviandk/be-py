@@ -2,12 +2,33 @@
 
 {% load i18n %}
 {% load account socialaccount %}
-{% load crispy_forms_tags %}
 
-{% block head_title %}{% trans "Login" %}{% endblock %}
+{% block head_title %}Login{% endblock %}
 
 {% block inner %}
+<main class="form-signin">
+  <form>
+    <!-- <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+    <h1 class="h3 mb-3 fw-normal">Login</h1>
+    <label for="inputEmail" class="visually-hidden">Alamat e-mail</label>
+    <input type="email" id="inputEmail" class="form-control mb-3" placeholder="Email address" required autofocus>
+    <label for="inputPassword" class="visually-hidden">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Ingat saya
+      </label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Masuk</button>
+    <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Lupa Sandi?" %}</a>
+    <br>
+    <a class="button secondaryAction" href="{% url 'account_signup' %}">Belum punya akun?</a>
 
+  </form>
+</main>
+{% endblock %}
+ 
+{% block m %}
 <h1>{% trans "Login" %}</h1>
 
 {% get_providers as socialaccount_providers %}
@@ -34,7 +55,7 @@ Untuk {{ site_name }} akun dan login dibawah ini:{% endblocktrans %}</p>
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
-  {{ form|crispy }}
+  {{ form }}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}

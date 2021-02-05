@@ -2,11 +2,30 @@
 
 {% load i18n %}
 {% load account socialaccount %}
-{% load crispy_forms_tags %}
 
 {% block head_title %}{% trans "Daftar" %}{% endblock %}
 
 {% block inner %}
+<main class="form-signin">
+  <form>
+    <!-- <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+    <h1 class="h3 mb-3 fw-normal">Daftar</h1>
+    <label for="inputEmail" class="visually-hidden">Alamat e-mail</label>
+    <input type="email" id="inputEmail" class="form-control mb-3" placeholder="Email address" required autofocus>
+    <label for="inputPassword" class="visually-hidden">Password</label>
+    <input type="password" id="inputPassword" class="form-control mb-3" placeholder="Password" required>
+    <label for="reinputPassword" class="visually-hidden">Konfirmasi Password</label>
+    <input type="password" id="reinputPassword" class="form-control mb-3" placeholder="Konfirmasi Password" required>
+    
+   
+    <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Daftar</button>
+    
+    <p>{% blocktrans %}Sudah punya akun? Silahkan <a href="{{ login_url }}">login</a>.{% endblocktrans %}</p>
+
+  </form>
+</main>
+{% endblock %}
+{% block s %}
 <h1>{% trans "Daftar" %}</h1>
 
 
@@ -31,7 +50,7 @@
 
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
-  {{ form|crispy }}
+  {{ form }}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
