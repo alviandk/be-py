@@ -155,7 +155,7 @@ BEPY_STATIC_BUCKET_NAME = os.environ['BEPY_STATIC_BUCKET_NAME']
 
 BEPY_MEDIA_BUCKET_NAME = os.environ['BEPY_MEDIA_BUCKET_NAME']
 
-STATICFILES_STORAGE = 'be_py.storage_backends.BepyOssStaticStorage'
+# STATICFILES_STORAGE = 'be_py.storage_backends.BepyOssStaticStorage'
 
 DEFAULT_FILE_STORAGE = 'be_py.storage_backends.BepyOssMediaStorage'
 

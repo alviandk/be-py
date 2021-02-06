@@ -1,3 +1,11 @@
 from django.shortcuts import render
 
-# Create your views here.
+# from .models import Project
+
+
+def testimonial_list_view(request):
+    context = {}
+
+    # context['project_list'] = Project.objects.all()
+
+    return render(request, 'testimonial/testimonial_list.html', context)

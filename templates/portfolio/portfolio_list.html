@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Portfolio{% endblock title %}
+
+
+  {% block custom_css %}
+  <link href="https://alvian-personal-website.oss-ap-southeast-5.aliyuncs.com/static/css/showcase-project.css" rel="stylesheet">
+  <link href="https://alvian-personal-website.oss-ap-southeast-5.aliyuncs.com/static/css/showcase-detail.css" rel="stylesheet">
+
+  <style>
+      .bg-info {
+    background-color: #007bff !important;
+}
+  </style>
+  {% endblock custom_css %}
+
+{% block content %}
+{% include 'components/navigation.html' with navbar_class="navbar navbar-expand-lg navbar-dark fixed-top" %}
+<header class="bg-info text-white">
+    <div class="container text-center">
+      <h1 class="text-white">Karya</h1>
+      <h2 class="text-white">"Karya yang kami hasilkan bersama Be-Py"</h2>
+    </div>
+  </header>
+
+  <section class="projects-section bg-light" id="projects">
+    <div class="container">
+        <div class="row">
+          
+        <div class="col-md-4 mb-5">
+          <div class="card h-100">
+            <div class="">
+              <img class="card-img-top lazy-image" alt="" src="https://alvian-personal-website.oss-ap-southeast-5.aliyuncs.com/media/personal.PNG" style="">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">AlvianDK's Personal Website</h4>
+              <p class="card-text">Personal website is used by software developers to demonstrate their abilities and increase sell value. A personal website usually contains …</p>
+            </div>
+            <div class="card-footer">
+              <a href="/showcase-project/alvians-personal-website/" class="btn btn-info">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-5">
+          <div class="card h-100">
+            <div class="">
+              <img class="card-img-top lazy-image" alt="" src="https://alvian-personal-website.oss-ap-southeast-5.aliyuncs.com/media/dat_4.PNG" style="">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">KMean Clustering of Vaccinate Data in All Provinces of Indonesia</h4>
+              <p class="card-text">This project is for upgrading my skillset in data science. It was created with popular data science library in python …</p>
+            </div>
+            <div class="card-footer">
+              <a href="/showcase-project/kmean-clustering-vaccinate-data-all-provinces-indo/" class="btn btn-info">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-5">
+          <div class="card h-100">
+            <div class="">
+              <img class="card-img-top lazy-image" alt="" src="https://alvian-personal-website.oss-ap-southeast-5.aliyuncs.com/media/anim.png" style="">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Animetachi</h4>
+              <p class="card-text">This project is for my undergraduate thesis on April 2016. It was created with django and some ajax requests in …</p>
+            </div>
+            <div class="card-footer">
+              <a href="/showcase-project/animetachi/" class="btn btn-info">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-5">
+          <div class="card h-100">
+            <div class="">
+              <img class="card-img-top lazy-image" alt="" src="https://alvian-personal-website.oss-ap-southeast-5.aliyuncs.com/media/log_QKa50Fi.png" style="">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Log Parser Web App</h4>
+              <p class="card-text">The flask app which parses the log and shows information about SQLi, remote file inclusion and web shells attacks. Some …</p>
+            </div>
+            <div class="card-footer">
+              <a href="/showcase-project/log-parser-web-app/" class="btn btn-info">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-5">
+          <div class="card h-100">
+            <div class="">
+              <img class="card-img-top lazy-image" alt="" src="https://alvian-personal-website.oss-ap-southeast-5.aliyuncs.com/media/uire.png" style="">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Uire Application</h4>
+              <p class="card-text">This project is a collaboration of me and a gunadarma lecturer. This is a clustering application of uire survey input …</p>
+            </div>
+            <div class="card-footer">
+              <a href="/showcase-project/uire-application/" class="btn btn-info">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+      {% include 'components/footer.html' %}
+{% endblock %}
+
+{% block custom_js %}
+<!-- Custom JavaScript for this theme -->
+<script src="{% static 'js/be-py-scripts.js' %}"></script>
+
+
+{% endblock custom_js %}
