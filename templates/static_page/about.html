@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Tentang Kami{% endblock title %}
+
+
+  {% block custom_css %}
+  <link href="https://alvian-personal-website.oss-ap-southeast-5.aliyuncs.com/static/css/showcase-project.css" rel="stylesheet">
+  <link href="https://alvian-personal-website.oss-ap-southeast-5.aliyuncs.com/static/css/showcase-detail.css" rel="stylesheet">
+
+  <style>
+      .bg-info {
+    background-color: #007bff !important;
+}
+  </style>
+  {% endblock custom_css %}
+
+{% block content %}
+{% include 'components/navigation.html' with navbar_class="navbar navbar-expand-lg navbar-dark fixed-top" %}
+    <header class="bg-info text-white">
+        <div class="container text-center">
+        <h1 class="text-white">Tentang Kami</h1>
+        <h2 class="text-white"></h2>
+        </div>
+    </header>
+
+	<section class="page-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12">
+					<p>
+						Be-Py merupakan singkatan dari <b>Be</b>lajar <b>Py</b>thon. 
+						Be-Py terbentuk karena banyak mahasiswa jurusan IT / Ilmu Komputer yang
+						merasa belum memiliki <i>skill programming</i>, sedangkan <i>skill programming</i> 
+						merupakan  <i>skill</i> wajib yang harus dimiliki oleh mahasiswa jurusan IT / Ilmu Komputer. 
+					</p>
+                        Be-Py merupakan platform pembelajaran pengembangan perangkat lunak menggunakan 
+                        bahasa pemrograman python. Materi pembelajaran akan ditulis dalam bahasa 
+                        Indonesia. Materi pembelajaran terdiri dari dasar bahasa pemrograman python, 
+                        membuat full stack website dengan django, membuat api dengan django rest framework,
+                        membuat microservice dengan flask dan lain lain.
+                    </p>
+					<h4>Mengapa Python?</h4>
+					<ul>
+						<li>Keunggulan Python dibandingkan dengan bahasa pemrograman lain.</li>
+						<li>Keunggulan kemudahan dalam sintaks, enak dibaca, sehingga lebih mudah digunakan untuk berkolaborasi.</li>
+						<li>Rekomendasi ahli untuk belajar pemrograman bagi pemula.</li>
+						<li>Kebutuhan programmer.</li>
+						<li>Banyak web ternama yang menggunakan Python seperti: Google, Paypal, Youtube</li>
+					</ul>
+					<br />
+					  
+				</div>             
+			</div>
+			
+		</div>
+	</section>
+
+{% include 'components/footer.html' %}
+{% endblock %}
+
+{% block custom_js %}
+<!-- Custom JavaScript for this theme -->
+<script src="{% static 'js/be-py-scripts.js' %}"></script>
+
+
+{% endblock custom_js %}

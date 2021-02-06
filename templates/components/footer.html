@@ -3,16 +3,17 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-4 text-lg-left">Copyright &copy; Be-Py {% now "Y" %}</div>
-            <div class="col-lg-4 my-3 my-lg-0">
+            <div class="col-lg-2 my-3 my-lg-0">
                 <!-- <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                 <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a> -->
             </div>
-            <div class="col-lg-4 text-lg-right">
-                <a class="mr-3" href="#!">About</a>
-                <a class="mr-3" href="#!">Contact</a>
-                <a class="mr-3" href="#!">Privacy Policy</a>
-                <a href="#!">Terms of Use</a>
+            <div class="col-lg-6 text-lg-right">
+                <a class="mr-3" href="{% url 'contact-us' %}">Hubungi Kami</a>
+                <a class="mr-3" href="{% url 'privacy-policy' %}">Kebijakan Privasi</a>
+                <a class="mr-3" href="{% url 'term-of-use' %}">Ketentuan Penggunaan</a>
+                <a class="mr-3" href="{% url 'about-us' %}">Tentang</a>
+                
             </div>
         </div>
     </div>
