@@ -1,3 +1,4 @@
+![](home.PNG)
 # Overview
 Bepy merupakan platform pembelajaran pengembangan perangkat lunak menggunakan bahasa pemrograman python. Materi pembelajaran akan ditulis dalam bahasa Indonesia. Materi pembelajaran terdiri dari dasar bahasa pemrograman python, membuat full stack website dengan django, membuat api dengan django rest framework, membuat microservice dengan flask dan lain lain.
 
