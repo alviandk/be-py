@@ -6142,7 +6142,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #343a40 !important;
+  background-color: #3775a9 !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
@@ -10047,7 +10047,7 @@ img::-moz-selection {
 #mainNav {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: #212529;
+  background-color: #3775a9 ;
 }
 #mainNav .navbar-toggler {
   padding: 0.75rem;
@@ -10097,7 +10097,7 @@ img::-moz-selection {
   #mainNav.navbar-shrink {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: #212529;
+    background-color: #3775a9 ;
   }
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.25em;
