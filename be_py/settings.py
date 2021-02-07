@@ -105,16 +105,17 @@ WSGI_APPLICATION = 'be_py.wsgi.application'
 DB_ENGINE = env('DB_ENGINE', default='sqlite')
 
 if DB_ENGINE == "mysql":
-    'default': {
-        'ENGINE': env('DATABASE_BACKEND', default='django.db.backends.mysql'),
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD', default=''),
-        'HOST': env('DATABASE_HOST', default='localhost'),
-        'PORT': env('DATABASE_PORT', default='3306'),
-        'ATOMIC_REQUESTS': True
+    DATABASES = {
+            'default': {
+            'ENGINE': env('DATABASE_BACKEND', default='django.db.backends.mysql'),
+            'NAME': env('DATABASE_NAME'),
+            'USER': env('DATABASE_USER'),
+            'PASSWORD': env('DATABASE_PASSWORD', default=''),
+            'HOST': env('DATABASE_HOST', default='localhost'),
+            'PORT': env('DATABASE_PORT', default='3306'),
+            'ATOMIC_REQUESTS': True
+        }
     }
-
 else:
     DATABASES = {
         'default': {
@@ -176,7 +177,7 @@ BEPY_STATIC_BUCKET_NAME = os.environ['BEPY_STATIC_BUCKET_NAME']
 
 BEPY_MEDIA_BUCKET_NAME = os.environ['BEPY_MEDIA_BUCKET_NAME']
 
-# STATICFILES_STORAGE = 'be_py.storage_backends.BepyOssStaticStorage'
+STATICFILES_STORAGE = env('STATICFILES_STORAGE', default='be_py.storage_backends.BepyOssStaticStorage')
 
 DEFAULT_FILE_STORAGE = 'be_py.storage_backends.BepyOssMediaStorage'
 
