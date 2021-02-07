@@ -7,26 +7,49 @@
 
 
 {% block inner %}
-<h1>{% trans "Konfirmasi alamat e-mail" %}</h1>
+<style>
+   .form-signin {
+    width: 100%;
+    max-width: 900px;
+    padding: 15px;
+        padding-top: 15px;
+    margin: auto;
+    padding-top: 70px;
+}
 
-{% if confirmation %}
+</style>
 
-{% user_display confirmation.email_address.user as user_display %}
+<main class="form-signin">
 
-<p>{% blocktrans with confirmation.email_address.email as email %}Harap konfirmasi <a href="mailto:{{ email }}">{{ email }}</a> adalah alamat e-mail untuk pengguna{{ user_display }}.{% endblocktrans %}</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>{% trans "Konfirmasi alamat e-mail" %}</h1>
 
-<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
-{% csrf_token %}
-    <button class="btn btn-primary" type="submit">{% trans 'Konfirmasi' %}</button>
-</form>
+                {% if confirmation %}
 
-{% else %}
+                {% user_display confirmation.email_address.user as user_display %}
 
-{% url 'account_email' as email_url %}
+                <p class="mb-3">
+                    {% blocktrans with confirmation.email_address.email as email %}
+                    Harap konfirmasi <a href="mailto:{{ email }}">{{ email }}</a> adalah alamat e-mail Anda.{% endblocktrans %}
+                </p>
+                
+                <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+                {% csrf_token %}
+                    <button class="btn btn-primary" type="submit">{% trans 'Konfirmasi' %}</button>
+                </form>
 
-<p>{% blocktrans %}Link konfirmasi ini kadaluarsa atau tidak valid. Harap <a href="{{ email_url }}">mengeluarkan permintaan konfirmasi e-mail baru</a>.{% endblocktrans %}</p>
+                {% else %}
 
-{% endif %}
+                {% url 'account_email' as email_url %}
 
+                <p>{% blocktrans %}Link konfirmasi ini kadaluarsa atau tidak valid. Harap <a href="{{ email_url }}">mengeluarkan permintaan konfirmasi e-mail baru</a>.{% endblocktrans %}</p>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</main>
 {% endblock %}
 

@@ -191,3 +191,5 @@ SOCIALACCOUNT_AUTO_SIGNUP = True
 
 AUTH_USER_MODEL = 'user.DplUser'
 LOGIN_REDIRECT_URL = 'home'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

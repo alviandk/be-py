@@ -7,21 +7,33 @@
 
 {% block inner %}
 <main class="form-signin">
-  <form>
+  <form method="post" action="{% url 'account_signup' %}">
     <!-- <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
     <h1 class="h3 mb-3 fw-normal">Daftar</h1>
-    <label for="inputEmail" class="visually-hidden">Alamat e-mail</label>
-    <input type="email" id="inputEmail" class="form-control mb-3" placeholder="Email address" required autofocus>
-    <label for="inputPassword" class="visually-hidden">Password</label>
-    <input type="password" id="inputPassword" class="form-control mb-3" placeholder="Password" required>
-    <label for="reinputPassword" class="visually-hidden">Konfirmasi Password</label>
-    <input type="password" id="reinputPassword" class="form-control mb-3" placeholder="Konfirmasi Password" required>
+    {% csrf_token %}
     
+    {% if form.errors %}
+      <div class="alert alert-danger" role="alert">
+        {{ form.errors }}
+      </div>
+    {% endif %}
+    <label for="inputEmail" class="visually-hidden">Alamat e-mail</label>
+    <input type="email" name="email" id="inputEmail" class="form-control mb-3" placeholder="Alamat e-mail" required autofocus>
+    <label for="inputPassword" class="visually-hidden">Password</label>
+    <input type="password" name="password1"  id="inputPassword" class="form-control mb-3" placeholder="Password" required>
+    <label for="reinputPassword" class="visually-hidden">Konfirmasi Password</label>
+    <input type="password" name="password2" id="reinputPassword" class="form-control mb-3" placeholder="Konfirmasi Password" required>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="agreement" required> 
+        Dengan ini Saya menyetujui <a href="{% url 'term-of-use' %}">ketentuan penggunaan</a> dan <a href="{% url 'privacy-policy' %}">kebijakan privasi</a>  Be-Py 
+      </label>
+    </div>
    
     <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Daftar</button>
     
-    <p>{% blocktrans %}Sudah punya akun? Silahkan <a href="{{ login_url }}">login</a>.{% endblocktrans %}</p>
-
+    <p>{% blocktrans %}Sudah punya akun? Silahkan <a href="{% url 'account_login' %}">login</a>.{% endblocktrans %}</p>
+    
   </form>
 </main>
 {% endblock %}
