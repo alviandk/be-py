@@ -27,13 +27,22 @@
     <!-- Contact-->
 	<section class="page-section bg-light">
 		<div class="container">
-			<form method="post" action=".">
+			<form method="POST" action="{% url 'static_page:contact-us' %}">
 				<div class="row align-items-stretch mb-3">
 					{% csrf_token %}
     
 					{% if form.errors %}
-					<div class="alert alert-danger" role="alert">
-						{{ form.errors }}
+					<div class="col-md-12">
+						<div class="alert alert-danger" role="alert">
+							{{ form.errors }}
+						</div>
+					</div>
+					{% endif %}
+					{% if message_status %}
+					<div class="col-md-12">
+						<div class="alert alert-success" role="alert">
+							Pesan telah kami terima.
+						</div>
 					</div>
 					{% endif %}
 					<div class="col-md-6">

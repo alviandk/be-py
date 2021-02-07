@@ -12,6 +12,3 @@ class TermOfUse(TemplateView):
 
 class AboutUs(TemplateView):
     template_name = "static_page/about.html"
-
-class ContactUs(TemplateView):
-    template_name = "static_page/contact_us.html"
