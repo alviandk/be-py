@@ -1,6 +1,11 @@
 <!-- Navigation-->
 <!-- navbar navbar-expand-md navbar-dark bg-dark mb-4 -->
 <!-- navbar navbar-expand-lg navbar-dark fixed-top -->
+<!-- {% load bepy_navigation %} -->
+{% load bepy_navigation %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as register_url %}
+
 <nav class="{{ navbar_class }}" id="mainNav">
     <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="{% url 'home' %}">Be-Py</a>
@@ -10,15 +15,42 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'course:course_list' %}">Belajar</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'testimonial:testimonial_list' %}">Testimoni</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'portfolio:portfolio_list' %}">Karya</a></li>
+                <li class="nav-item">
+                    <a 
+                        class="nav-link js-scroll-trigger {% active request.path 'course' %}"
+                        href="{% url 'course:course_list' %}">
+                        Belajar
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger {% active request.path 'testimonial' %}"
+                    href="{% url 'testimonial:testimonial_list' %}">
+                        Testimoni
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger {% active request.path 'portfolio' %}" 
+                    href="{% url 'portfolio:portfolio_list' %}">
+                        Karya
+                    </a>
+                </li>
             {% if request.user.is_authenticated %}
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_login' %}">Dashboard</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_logout' %}">Logout</a></li>
             {% else %}
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_signup' %}">Daftar</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'account_login' %}">Login</a></li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger {% if request.path == register_url %} active {%endif%}" 
+                    href="{% url 'account_signup' %}">
+                    Daftar
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a 
+                    class="nav-link js-scroll-trigger {% if request.path == login_url %} active {%endif%}" 
+                    href="{% url 'account_login' %}">
+                     Login
+                    </a>
+                </li>
             {% endif %}
                 
             </ul>
