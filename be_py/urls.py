@@ -17,15 +17,18 @@ from django.contrib import admin
 from django.urls import path, include 
 
 from .views import (
-    Home, 
     AboutUs,
     PrivacyPolicy,
     TermOfUse
 )
 
+from static_page.views import (
+    home_view
+)
+
 
 urlpatterns = [
-    path("", Home.as_view(), name="home"),
+    # path("", home_view, name="home"),
     path("", include("static_page.urls")), 
     path("about-us", AboutUs.as_view(), name="about-us"),
     path("privacy-policy", PrivacyPolicy.as_view(), name="privacy-policy"),
