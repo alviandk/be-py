@@ -1,16 +1,21 @@
-{% extends "base.html" %}
+{% extends "account/base.html" %}
 
-{% block title %}Page Not found{% endblock %}
+{% block title %}Halaman Tidak Ditemukan{% endblock %}
 
-{% block content %}
-  <div style="padding-top: 200px">
-        <div class="container">
-            <div class="row">
-              <h1>Page Not found</h1>
+{% block inner %}
 
-              <p>This is not the page you were looking for.</p>
+        <main class="form-signin" style="max-width: 900px;">
 
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-12">
+                      <h1>Error 404 - Halaman Tidak Ditemukan</h1>
+                    
+                      <p>
+                          Halaman dengan url ini tidak tersedia. Kembali ke <a href="{% url 'home' %}">halaman utama</a>.
+                      </p>
+                  </div>
               </div>
           </div>
-  </div>
-{% endblock content %}
+      </main>
+{% endblock %}

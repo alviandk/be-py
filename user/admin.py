@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import DplUser, UserProfile
+from .models import DplUser, ProfesionalProfile, UserProfile
 
 
 class UserProfileInline(admin.StackedInline):
@@ -30,3 +30,4 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(DplUser, CustomUserAdmin)
+admin.site.register(ProfesionalProfile)

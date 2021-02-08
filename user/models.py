@@ -37,3 +37,19 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return f"{self.user.email}'s profile"
+
+
+class ProfesionalProfile(models.Model):
+    user = models.OneToOneField(
+            DplUser, 
+            on_delete=models.CASCADE, 
+            related_name='profesional_profile'
+    )
+    position = models.CharField(max_length=128)
+    company_name = models.CharField(max_length=128)
+    linkedin = models.URLField()
+    github = models.URLField()
+    
+
+    def __str__(self):
+        return f"{self.user.email}'s profile"

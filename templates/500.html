@@ -1,19 +1,24 @@
-{% extends "base.html" %}
+{% extends "account/base.html" %}
 
-{% block title %}Server Error{% endblock %}
+{% block title %}Kesalahan pada Sistem Kami{% endblock %}
 
-{% block content %}
-  <div style="padding-top: 200px">
-        <div class="container">
-            <div class="row">
-              <h1>Ooops!!! 500</h1>
+{% block inner %}
 
-              <h3>Looks like something went wrong!</h3>
+        <main class="form-signin" style="max-width: 900px;">
 
-              <p>We track these errors automatically, but if the problem persists feel free to contact us. In the meantime, try refreshing.</p>
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-12">
+                      <h1>Error 500 - Kesalahan pada Sistem Kami</h1>
+                    
+                      <p>
+                          Terdapat kesalahan pada sistem kami.
+                          Kembali ke <a href="{% url 'home' %}">halaman utama</a> atau laporkan melalui form <a href="{% url 'static_page:contact-us' %}">hubungi kami</a>.
+                      </p>
+                  </div>
               </div>
           </div>
-  </div>
-{% endblock content %}
+      </main>
+{% endblock %}
 
 

@@ -58,6 +58,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
     # 'allauth.socialaccount.providers.google', 
 
+    'ckeditor',
+    'ckeditor_uploader',
+
     # internal apps
     'auths',
     'course',
@@ -216,4 +219,5 @@ LOGIN_REDIRECT_URL = 'home'
 
 EMAIL_BACKEND = env('EMAIL_BACKEND', default='django.core.mail.backends.console.EmailBackend')
 
-
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
