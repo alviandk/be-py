@@ -1,18 +1,24 @@
-{% extends "base.html" %}
+{% extends "account/base.html" %}
 
 {% block title %}Forbidden (403){% endblock %}
 
-{% block content %}
-  <div style="padding-top: 200px">
-        <div class="container">
-            <div class="row">
-              <h1>Forbidden (403)</h1>
+{% block inner %}
 
-              <p>CSRF verification failed. Request aborted.</p>
+        <main class="form-signin" style="max-width: 900px;">
 
-
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-12">
+                      <h1>Forbidden (403) - Gagal Verifikasi CSRF</h1>
+                    
+                      <p>
+                        Verifikasi CSR gagal. Permintaan dibatalkan.
+                          Kembali ke <a href="{% url 'static_page:home' %}">halaman utama</a>.
+                      </p>
+                  </div>
               </div>
           </div>
-  </div>
-{% endblock content %}
+      </main>
+{% endblock %}
+
 

@@ -1,0 +1,5 @@
+Halo dari Be-Py
+
+{% block content %}{% endblock %}
+
+Terima kasih telah bergabung bersama Be-Py.

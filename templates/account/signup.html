@@ -13,12 +13,18 @@
     {% csrf_token %}
     
     {% if form.errors %}
-      <div class="alert alert-danger" role="alert">
-        {{ form.errors }}
-      </div>
+      {% if form.email.errors %}
+        <div class="alert alert-danger" role="alert">
+          E-mail yang kamu masukkan sudah terdaftar di sistem kami.<br>
+          Silahkan <a href="{% url 'account_login' %}">login</a> atau 
+          gunakan fitur <a href="{% url 'account_reset_password' %}">lupa password</a>.
+        </div>
+      {% endif %}
+      {% include 'components/double_password_validation.html' %}
     {% endif %}
+
     <label for="inputEmail" class="visually-hidden">Alamat e-mail</label>
-    <input type="email" name="email" id="inputEmail" class="form-control mb-3" placeholder="Alamat e-mail" required autofocus>
+    <input type="email" {% if form.email.value %}value="{{ form.email.value }}"{% endif %} name="email" id="inputEmail" class="form-control mb-3" placeholder="Alamat e-mail" required autofocus>
     <label for="inputPassword" class="visually-hidden">Password</label>
     <input type="password" name="password1"  id="inputPassword" class="form-control mb-3" placeholder="Password" required>
     <label for="reinputPassword" class="visually-hidden">Konfirmasi Password</label>

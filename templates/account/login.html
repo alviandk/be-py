@@ -7,24 +7,20 @@
 
 {% block inner %}
 <main class="form-signin">
-  <form method="POST" action="{% url 'account_login' %}">
+  <form method="POST" action="{% url 'account_login' %}" autocomplete="off">
     <!-- <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
     <h1 class="h3 mb-3 fw-normal">Login</h1>
     {% csrf_token %}
     {% if form.errors %}
-      <div class="alert alert-danger" role="alert">
-        {{ form.errors }}
-      </div>
+        <div class="alert alert-danger" role="alert">
+          Alamat e-mail dan atau password yang kamu masukkan tidak sesuai.
+        </div>
     {% endif %}
     <label for="inputEmail" class="visually-hidden">Alamat e-mail</label>
     <input type="email" name="login" id="inputEmail" class="form-control mb-3" placeholder="Alamat e-mail" required autofocus>
     <label for="inputPassword" class="visually-hidden">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Ingat saya
-      </label>
-    </div>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required autocomplete="off">
+    
     <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Masuk</button>
     <a class="button secondaryAction" href="{% url 'account_reset_password' %}">Lupa password?</a>
     <br>

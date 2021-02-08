@@ -1,16 +1,24 @@
-{% extends "base.html" %}
+{% extends "account/base.html" %}
 
-{% block title %}Forbidden Page{% endblock %}
+{% block title %}Forbidden (403){% endblock %}
 
-{% block content %}
-  <div style="padding-top: 200px">
-        <div class="container">
-            <div class="row">
-              <h1>Forbidden Page</h1>
+{% block inner %}
 
-              <p>Sorry, you don't have permission.</p>
+        <main class="form-signin" style="max-width: 900px;">
 
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-12">
+                      <h1>Forbidden (403) - Halaman Terlarang</h1>
+                    
+                      <p>
+                        Maaf kamu tidak punya hak akses di halaman ini.
+                          Kembali ke <a href="{% url 'static_page:home' %}">halaman utama</a>.
+                      </p>
+                  </div>
               </div>
           </div>
-  </div>
-{% endblock content %}
+      </main>
+{% endblock %}
+
+
