@@ -35,7 +35,11 @@
               </div>
               <div class="card-body">
                 <h4 class="card-title">{{ project.name }}</h4>
-                <p class="card-text">{{ project.description | safe | truncatewords:20 }}</p>
+                <p class="card-text">              
+                  {% autoescape off %}
+                    {{ project.description | truncatewords:18}}  
+                  {% endautoescape %}
+                </p>
               </div>
               <div class="card-footer">
                 <a href="{% url 'portfolio:portfolio_detail' project.slug %}" class="btn btn-primary">Find Out More!</a>

@@ -41,8 +41,9 @@
                 <div class="featured-text text-left text-lg-left">
                     <h2>Deskripsi</h2>
                     <p class="text-black-50 mb-0">
-                        
-                        {{ project.description | safe }}
+                        {% autoescape off %}
+                          {{ project.description }}  
+                        {% endautoescape %}
                     </p>
                 </div>
             </div>
