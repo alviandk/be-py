@@ -3,13 +3,21 @@ from django.contrib.auth.admin import UserAdmin
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import DplUser, ProfesionalProfile, UserProfile
+from testimonial.models import MemberStory
 
 
 class UserProfileInline(admin.StackedInline):
     model = UserProfile
 
+class ProfesionalProfileInline(admin.StackedInline):
+    model = ProfesionalProfile
+
+class MemberStoryInline(admin.StackedInline):
+    max_num = 1
+    model = MemberStory
+
 class CustomUserAdmin(UserAdmin):
-    inlines = UserAdmin.inlines + [UserProfileInline,]
+    inlines = UserAdmin.inlines + [UserProfileInline, ProfesionalProfileInline]
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = DplUser
@@ -30,4 +38,3 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(DplUser, CustomUserAdmin)
-admin.site.register(ProfesionalProfile)
