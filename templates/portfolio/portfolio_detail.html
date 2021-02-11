@@ -29,24 +29,25 @@
     </div>
   </header>
 
-  <section class="projects-section bg-light" id="projects">
+  <section class="projects-section bg-light" style="padding-top: 4rem;">
     <div class="container">
         <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-          <div class="col-md-12">
+          <div class="col-md-12 mb-3">
             <div class="featured-text text-left text-lg-left">
                 <h2>Deskripsi</h2>
-                <p class="text-black-50 mb-0">
+                <p class="text-black-50 mb-3">
                     {% autoescape off %}
                       {{ project.description }}  
                     {% endautoescape %}
                 </p>
             </div>
-        </div>
-            <div class="col-md-9 offset-md-3">
-                <div class="placeholder-item placeholder-loading"></div>
-                 <img class="img-fluid mb-3 mb-lg-0 lazy-image" src="{{ project.cover_image.url }}" alt="">
-                </div>
+          </div>
+          <div class="col-md-12">
+            <div class=" text-center">
+              <img class="img-fluid mb-3  lazy-image" src="{{ project.cover_image.url }}" alt="">
             </div>
+          </div>
+        </div>
             
         
         </div>
