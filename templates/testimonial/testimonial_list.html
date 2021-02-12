@@ -46,9 +46,9 @@
                         <i class="fab fa-linkedin-in"></i>
                       </a>
                     </div>
-                    {% autoescape off %}
-                      {{ story.story | truncatewords:18}}  
-                    {% endautoescape %}
+                    <p>
+                      {{ story.synopsis }}  
+                    </p>
                     <p><a class="btn btn-primary" href="{% url 'testimonial:testimonial_detail' story.id %}" role="button">Cerita selengkapnya »</a></p>
                 </div>
             </div>

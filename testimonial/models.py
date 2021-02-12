@@ -11,6 +11,7 @@ class MemberStory(models.Model):
             on_delete=models.CASCADE, 
             related_name='stories'
     )
+    synopsis = models.CharField(max_length=128, default='')
     story = RichTextField()
 
     def __str__(self):

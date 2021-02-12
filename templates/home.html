@@ -237,9 +237,9 @@
 								</a>
 							</div>
 							
-							{% autoescape off %}
-								{{ story.story | truncatewords:18}}  
-							{% endautoescape %}
+							<p>
+								{{ story.synopsis }}  
+							</p>
 							<p><a class="btn btn-primary" href="{% url 'testimonial:testimonial_detail' story.id %}" role="button">Cerita selengkapnya »</a></p>
 						</div>
 					</div>
@@ -270,7 +270,7 @@
 							<h4 class="card-title">{{ project.name }}</h4>
 							<p class="card-text">              
 								{% autoescape off %}
-								  {{ project.description | truncatewords:18}}  
+								  {{ project.synopsis | truncatewords:18}}  
 								{% endautoescape %}
 							  </p>
 						</div>
