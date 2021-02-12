@@ -38,11 +38,12 @@
     </div>
   </header>
 
-  <section class="projects-section bg-light" id="projects">
+  <section class="projects-section" style="padding-top: 4em;">
     <div class="container">
        <!-- Three columns of text below the carousel -->
        <div class="row">
           <div class="col-lg-12">
+            <h3>Testimoni oleh {{ story.user.profile.name }}</h3>
             <p>
               {% autoescape off %}
                 {{ story.story }}  
