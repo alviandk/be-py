@@ -16,7 +16,7 @@
       {% if form.email.errors %}
         <div class="alert alert-danger" role="alert">
           E-mail yang kamu masukkan sudah terdaftar di sistem kami.<br>
-          Silahkan <a href="{% url 'account_login' %}">login</a> atau 
+          Silakan <a href="{% url 'account_login' %}">login</a> atau 
           gunakan fitur <a href="{% url 'account_reset_password' %}">lupa password</a>.
         </div>
       {% endif %}
@@ -56,7 +56,7 @@
    
     <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Daftar</button>
     
-    <p>Sudah punya akun? Silahkan <a href="{% url 'account_login' %}">login</a>.</p>
+    <p>Sudah punya akun? Silakan <a href="{% url 'account_login' %}">login</a>.</p>
     
   </form>
 </main>
@@ -65,7 +65,7 @@
 <h1>{% trans "Daftar" %}</h1>
 
 
-<p>{% blocktrans %}Sudah punya akun? Silahkan <a href="{{ login_url }}">login</a>.{% endblocktrans %}</p>
+<p>{% blocktrans %}Sudah punya akun? Silakan <a href="{{ login_url }}">login</a>.{% endblocktrans %}</p>
 
 {% get_providers as socialaccount_providers %}
 
