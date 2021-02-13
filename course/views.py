@@ -1,12 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
-# from .models import Project
+from .models import Course, Module
 
 
 def course_list_view(request):
     context = {}
 
-    # context['project_list'] = Project.objects.all()
+    context['course_list'] = Course.objects.all()
 
     return render(request, 'learn/learn_text_list.html', context)
-    # return render(request, 'static_page/under_construction.html', context)
+
+
+def course_detail_view(request, slug):
+    context = {}
+
+    context['course'] = get_object_or_404(Course, slug=slug)
+
+    return render(request, 'learn/learn_text_detail.html', context)
