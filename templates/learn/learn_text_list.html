@@ -12,6 +12,7 @@
   }
   
   /* small screens */
+  
   @media (max-width: 768px) {
     /* override stickyness so that the navigation does not follow scrolling */
     nav[data-toggle="toc"] {
@@ -32,17 +33,54 @@
     */
   }
   #mainNav {
-    background-color: #212529;
+    background-color: #3775a9;
 }
-  </style>
-  {% include 'components/navigation.html' with navbar_class="navbar navbar-expand-md navbar-dark bg-dark mb-4" %}
 
-<section class="page-section">
+:target::before {
+  content: "";
+  display: block;
+  height: 110px; /* fixed header height*/
+  margin: -110px 0 0; /* negative fixed header height */
+}
+.absolutely-right{
+  position:fixed; 
+  margin-top: 8em;
+}
+.absolutely{
+  position:fixed; 
+}
+
+@media (max-width: 992px) {
+  .absolutely-right, .absolutely{
+    position:static; 
+  }
+
+  }
+
+  </style>
+{% include 'components/navigation.html' with navbar_class="navbar navbar-expand-lg navbar-dark fixed-top" %}
+
+<section class="page-section" style="padding-top: 8em;">
   <div class="container">
     <div class="row">
       <!-- sidebar, which will move to the top on a small screen -->
-      <div class="col-sm-2">
-        <nav id="toc" data-toggle="toc" class="sticky-top"></nav>
+      <div id="left-sidebar" class="col-sm-2">
+        
+        <ul class="nav flex-column nav-pills absolutey" class="sticky-top">
+          <h4>Judul Bab</h4>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
       </div>
       <!-- main content area -->
       <div class="col-sm-8">
@@ -299,8 +337,8 @@
           </script>
           </footer>
       </div>
-      <div class="col-sm-2">
-        <nav id="toc" data-toggle="toc" class="sticky-top"></nav>
+      <div id="right-sidebar" class="col-sm-2">
+        <nav id="toc" data-toggle="toc" class="sticky-top absolutey-right"></nav>
       </div>
     </div>
   </div>
