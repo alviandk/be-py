@@ -32,4 +32,4 @@ class ModuleContent(models.Model):
     )
 
     def __str__(self):
-        return f"module: {self.module_name}, content: {self.id}, "
+        return f"module: {self.module.module_name}, content: {self.id}, "
