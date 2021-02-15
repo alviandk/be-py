@@ -30,3 +30,9 @@ def home_view(request):
     context['project_list'] = Project.objects.filter(id__in=projects_ids)
 
     return render(request, 'home.html', context)
+
+
+def learn_type_view(request):
+    context = {}
+
+    return render(request, 'static_page/learn-type.html', context)

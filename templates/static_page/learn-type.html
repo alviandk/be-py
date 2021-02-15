@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Jenis Belajar{% endblock title %}
+
+
+  {% block custom_css %}
+  <link href="https://alvian-personal-website.oss-ap-southeast-5.aliyuncs.com/static/css/showcase-project.css" rel="stylesheet">
+  <link href="https://alvian-personal-website.oss-ap-southeast-5.aliyuncs.com/static/css/showcase-detail.css" rel="stylesheet">
+
+  <style>
+    #mainNav {
+        background-color: #3775a9;
+    }
+  </style>
+  {% endblock custom_css %}
+
+{% block content %}
+{% include 'components/navigation.html' with navbar_class="navbar navbar-expand-lg navbar-dark fixed-top" %}
+
+	<section class="page-section" style="padding-top: 8em;">
+		<div class="container">
+            <h1 class="mb-5 text-center">Jenis-Jenis Belajar</h1>
+			<div class="row">
+				<div class="col-lg-12 col-md-12">
+					<nav class="mb-4">
+                        <div class="nav nav-tabs nav-pills nav-fill" id="nav-tab" role="tablist">
+                          <a class="nav-link active" id="nav-mandiri-tab" data-toggle="tab" 
+                          href="#nav-mandiri" role="tab" aria-controls="nav-mandiri" aria-selected="true">
+                              Online Mandiri
+                        </a>
+                          <a class="nav-link" id="nav-kuliah-tab" data-toggle="tab" 
+                          href="#nav-kuliah" role="tab" aria-controls="nav-kuliah" aria-selected="false">
+                              Tugas Akhir Kuliah
+                            </a>
+                          <a class="nav-link" id="nav-kelompok-tab" data-toggle="tab" 
+                          href="#nav-kelompok" role="tab" aria-controls="nav-kelompok" aria-selected="false">
+                              Online Berkelompok
+                            </a>
+                          <a class="nav-link" id="nav-intensif-tab" data-toggle="tab" 
+                          href="#nav-intensif" role="tab" aria-controls="nav-intensif" aria-selected="false">
+                              Privat Intensif
+                            </a>
+                        </div>
+                      </nav>
+                      <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-mandiri" role="tabpanel" aria-labelledby="nav-mandiri-tab">
+                            <div class="mt-5 text-center">
+                                <i class="fas fa-8x fa-laptop-code text-primary mb-4"></i>
+                                <h3 class="h4 mb-3">Belajar Online Mandiri</h3>
+                                
+                            </div>
+                            <p class="mb-5">
+                                Menu belajar ini kami peruntukkan untuk kamu yang suka belajar mandiri. 
+                                Kami menyediakan berbagai pelajaran yang berkaitan dengan pemrograman python 
+                                dan contoh penerapannya. Materi yang tersedia diantaranya basic pemrograman python,
+                                basic pembuatan aplikasi web dengan framework python, cara deployment aplikasi python 
+                                dengan framework yang populer, automation testing dengan tools dan 
+                                library yang dibuat dengan python, dan lain lain.  
+                                Pelajaran yang kami sediakan gratis untuk yang sudah mendaftar. 
+                            </p>    
+                            <p class="text-center">
+                                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
+                                href="{% url 'course:course_list' %}">Mulai Belajar</a>
+                            </p>
+                        </div>
+                        <div class="tab-pane fade" id="nav-kuliah" role="tabpanel" aria-labelledby="nav-kuliah-tab">
+                            <div class="mt-5 text-center">
+                                <i class="fas fa-8x fa-graduation-cap text-primary mb-4"></i>
+                                <h3 class="h4 mb-3">Proyek Tugas Akhir Kuliah</h3>
+                                
+                            </div>
+                            <p class="mb-3">
+                               Menu belajar ini diperuntukkan bagi mahasiswa yang akan mengerjakan tugas akhir dengan pemrograman python.
+                               Kami berperan sebagai pembimbing ekstra untuk kamu. Fokus kami lebih kepada membantu dalam mengerjakan 
+                               pengembangan aplikasi. Kami mengarahkan agar aplikasi yang kamu buat bisa menjadi portfolio kamu di masa depan saat akan 
+                               mencari kerja. 
+                               Kami memiliki banyak member yang sudah belajar bersama kami dalam mengerjakan tugas akhir kuliah mereka.
+                               Banyak dari mereka yang merasa terbantu, sehingga hasil aplikasi yang dibuat menjadi modal dalam mencari kerja.
+                               Kisah selengkapnya bisa kamu baca di <a href="{% url 'testimonial:testimonial_list' %}">testimoni</a>.                                 
+                            </p> 
+                            <p class="text-center">
+                                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
+                                href="">Ajukan Bimbingan</a>
+                            </p>   
+                            
+                        </div>
+                        <div class="tab-pane fade" id="nav-kelompok" role="tabpanel" aria-labelledby="nav-kelompok-tab">
+                            <div class="mt-5 text-center">
+                                <i class="fas fa-8x fa-users text-primary mb-4"></i>
+                                <h3 class="h4 mb-3">Belajar Online Kelompok</h3>
+                            </div>
+                            <p class="mb-5">
+                                Menu belajar ini cocok bagi kamu yang lebih termotivasi untuk belajar bersama teman 
+                                dalam satu kelompok. Dalam satu kelompok maksimal terdapat 5 member yang mau belajar bersama.
+                                Kami akan menyediakan tutor yang akan menyediakan kelas yang mereka buat sesuai bidang 
+                                pekerjaan mereka. Terdapat bidang software developer dan software quality assurance.
+                                Disini kamu tidak hanya belajar mengcoding tapi juga hal-hal yang harus dipahami apabila
+                                menjadi seorang software developer ataupun software quality assurance.
+                            </p>
+                            <p class="text-center">
+                                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
+                                href="">Ikuti Kelas Kelompok</a>
+                            </p>   
+                        </div>
+                        <div class="tab-pane fade" id="nav-intensif" role="tabpanel" aria-labelledby="nav-intensif-tab">
+                            <div class="mt-5 text-center">
+                                <i class="fas fa-8x fa-user-friends text-primary mb-4"></i>
+                                <h3 class="h4 mb-3">Mentoring Privat Intensif</h3>
+                                
+                            </div>
+                            <p class="mb-5">
+                                Menu belajar ini kami peruntukkan untuk kamu yang suka belajar mandiri tapi juga 
+                                butuh bimbingan dari seorang mentor. 
+                                Kami menyediakan kelas mentorign intensif untuk bidang software developer dan software quality assurance.
+                                Menu ini lebih diperuntukkan untuk member yang sudah lulus kuliah dan memulai karir di bidang 
+                                software developer atau pun software quality assurance. 
+                                Mentor yang kami sediakan merupakan mentor yang sudah teruji di dalam kerasnya dunia kerja.
+                                Selain belajar skill teknis, dapatkan juga tips-tips dalam berkarir dari para mentor kami.
+                            </p>    
+                            <p class="text-center">
+                                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
+                                href="">Lihat Mentor</a>
+                            </p>
+                        </div>
+                      </div>
+                      
+                      
+                        
+				</div>             
+			</div>
+			
+		</div>
+	</section>
+
+{% include 'components/footer.html' %}
+{% endblock %}
+
+{% block custom_js %}
+<!-- Custom JavaScript for this theme -->
+<script src="{% static 'js/be-py-scripts.js' %}"></script>
+
+
+{% endblock custom_js %}
