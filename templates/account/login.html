@@ -16,6 +16,9 @@
           Alamat e-mail dan atau password yang kamu masukkan tidak sesuai.
         </div>
     {% endif %}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
     <label for="inputEmail" class="visually-hidden">Alamat e-mail</label>
     <input type="email" name="login" id="inputEmail" class="form-control mb-3" placeholder="Alamat e-mail" required autofocus>
     <label for="inputPassword" class="visually-hidden">Password</label>
@@ -24,7 +27,7 @@
     <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Masuk</button>
     <a class="button secondaryAction" href="{% url 'account_reset_password' %}">Lupa password?</a>
     <br>
-    <a class="button secondaryAction" href="{% url 'account_signup' %}">Belum punya akun?</a>
+    <a class="button secondaryAction" href="{{ signup_url }}">Belum punya akun?</a>
 
   </form>
 </main>

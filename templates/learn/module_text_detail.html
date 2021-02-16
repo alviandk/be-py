@@ -94,7 +94,7 @@
 		  {% for modul in course.modules.all %}
         <li class="nav-item">
           <a class="nav-link {% if module.slug == modul.slug %} active {% endif %}" 
-          href="{% url 'course:module_detail' modul.slug %}">
+          href="{% url 'course:module_detail' course.slug modul.slug %}">
           {{ modul.module_name }}
         </a>
         </li>

@@ -40,7 +40,9 @@
         </div>
       {% endif %}
     {% endif %}
-
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
     <label for="inputEmail" class="visually-hidden">Alamat e-mail</label>
     <input type="email" {% if form.email.value %}value="{{ form.email.value }}"{% endif %} name="email" id="inputEmail" class="form-control mb-3" placeholder="Alamat e-mail" required autofocus>
     <label for="inputPassword" class="visually-hidden">Password</label>

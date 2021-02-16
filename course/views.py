@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render
 
 from .models import Course, Module
@@ -19,10 +20,11 @@ def course_detail_view(request, slug):
     return render(request, 'learn/learn_text_detail.html', context)
 
 
-def module_detail_view(request, slug):
+@login_required
+def module_detail_view(request, course_slug, slug):
     context = {}
 
-    module = get_object_or_404(Module, slug=slug)
+    module = get_object_or_404(Module, course__slug=course_slug, slug=slug)
     context['module'] = module 
     context['course'] = module.course
     return render(request, 'learn/module_text_detail.html', context)
