@@ -17,3 +17,12 @@ def course_detail_view(request, slug):
     context['course'] = get_object_or_404(Course, slug=slug)
 
     return render(request, 'learn/learn_text_detail.html', context)
+
+
+def module_detail_view(request, slug):
+    context = {}
+
+    module = get_object_or_404(Module, slug=slug)
+    context['module'] = module 
+    context['course'] = module.course
+    return render(request, 'learn/module_text_detail.html', context)

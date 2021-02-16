@@ -1,3 +1,5 @@
+from uuid import uuid1
+
 from django.db import models
 
 from ckeditor.fields import RichTextField
@@ -47,6 +49,7 @@ class Module(models.Model):
         on_delete=models.CASCADE, 
         related_name='modules'
     )
+    slug = models.SlugField(null=True)
 
     def __str__(self):
         return f"course: {self.course.id}, module: {self.module_name}"

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}BE-PY | Belajar Mandiri | {{ course.course_name }} {% endblock %}
+
+{% block custom_js %}
+
+  {% endblock custom_js %}
+  
+{% block content %}
+<style>nav[data-toggle="toc"] {
+    top: 2rm;
+  }
+  
+  /* small screens */
+  
+  @media (max-width: 768px) {
+    /* override stickyness so that the navigation does not follow scrolling */
+    nav[data-toggle="toc"] {
+      margin-bottom: 42px;
+      position: static;
+    }
+  
+    /* PICK ONE */
+    /* don't expand nested items, which pushes down the rest of the page when navigating */
+    nav[data-toggle="toc"] .nav .active .nav {
+      display: none;
+    }
+    /* alternatively, if you *do* want the second-level navigation to be shown (as seen on this page on mobile), use this */
+    /*
+    nav[data-toggle='toc'] .nav .nav {
+      display: block;
+    }
+    */
+  }
+  #mainNav {
+    background-color: #3775a9;
+}
+
+:target::before {
+  content: "";
+  display: block;
+  height: 90px; /* fixed header height*/
+  margin: -90px 0 0; /* negative fixed header height */
+}
+.absolutely-right{
+  position:fixed; 
+  margin-top: 8em;
+}
+.absolutely{
+  position:fixed; 
+}
+
+@media (max-width: 992px) {
+  .absolutely-right, .absolutely{
+    position:static; 
+  }
+
+  }
+
+  </style>
+{% include 'components/navigation.html' with navbar_class="navbar navbar-expand-lg navbar-dark fixed-top" %}
+
+<section class="page-section" style="padding-top: 8em;">
+  <div class="container">
+    <div class="row">
+      <!-- sidebar, which will move to the top on a small screen -->
+      <!-- main content area -->
+      
+      <div id="left-sidebar" class="col-sm-2">
+        <h4>Daftar Isi</h4>
+        <nav id="toc" data-toggle="toc" class="sticky-top absolutey"></nav>
+      </div>
+      
+      <div class="col-sm-8">
+        <h1>{{ course.course_name }}</h1>
+        <h2 data-toc-skip>Modul: {{ module.module_name }}</h2>
+        {% for content in module.contents.all %}
+          {% autoescape off %}
+            {{ content.text }}  
+          {% endautoescape %}
+        {% empty %}
+        -
+        {% endfor %}
+      </div>
+      
+      
+      <div id="right-sidebar" class="col-sm-2">
+        
+        <ul class="nav flex-column nav-pills absolutey-right sticky-top" >
+          <h4>Modul</h4>
+		  <li class="nav-item">
+			<a class="nav-link" href="{% url 'course:course_detail' course.slug %}">Silabus</a>
+		  </li>
+		  {% for modul in course.modules.all %}
+        <li class="nav-item">
+          <a class="nav-link {% if module.slug == modul.slug %} active {% endif %}" 
+          href="{% url 'course:module_detail' modul.slug %}">
+          {{ modul.module_name }}
+        </a>
+        </li>
+		  {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% include 'components/footer.html' %}
+
+{% endblock %}
