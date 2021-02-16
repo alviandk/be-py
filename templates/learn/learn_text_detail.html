@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}BE-PY | Belajar | Teks{% endblock %}
+{% block title %}BE-PY | Belajar Mandiri | {{ course.course_name }} {% endblock %}
 
 {% block custom_js %}
 
@@ -39,8 +39,8 @@
 :target::before {
   content: "";
   display: block;
-  height: 110px; /* fixed header height*/
-  margin: -110px 0 0; /* negative fixed header height */
+  height: 90px; /* fixed header height*/
+  margin: -90px 0 0; /* negative fixed header height */
 }
 .absolutely-right{
   position:fixed; 
@@ -64,9 +64,49 @@
   <div class="container">
     <div class="row">
       <!-- sidebar, which will move to the top on a small screen -->
+      <!-- main content area -->
+      
       <div id="left-sidebar" class="col-sm-2">
+        <h4>Daftar Isi</h4>
+        <nav id="toc" data-toggle="toc" class="sticky-top absolutey"></nav>
+      </div>
+      
+      <div class="col-sm-8">
+        <h1>{{ course.course_name }}</h1>
+        <p>
+          {{ course.description }}
+        </p>
+        <div class="placeholder-item placeholder-loading mb-3">
+          <img class="card-img-top lazy-image" src="{{ course.cover_image.url }}" alt="">
+        </div>
+        <h2 data-toc-text="Tujuan">Tujuan Pembelajaran </h2>
+          {% autoescape off %}
+            {{ course.syllabus.objectives }}  
+          {% endautoescape %}
+        <h2 data-toc-text="Teknologi">Teknologi yang digunakan pada Materi Ini</h2>
+          {% autoescape off %}
+            {{ course.syllabus.technologies }}  
+          {% endautoescape %}
+        <h2 data-toc-text="Prasyarat">Prasyarat Mengikuti Materi Ini</h2>
+          {% autoescape off %}
+            {{ course.syllabus.prerequisites }}  
+          {% endautoescape %}
+        <h2 data-toc-text="Versi">Info Versi</h2>
+        <ul class="">
+          <li>Versi: {{ course.syllabus.version }} </li>
+          <li>Perubahan Terakhir: {{ course.syllabus.last_change|date:"d F Y" }}</li>
+          <li>Penulis: {{ course.syllabus.author.profile.name }}</li>
+        </ul>
+        <h2 data-toc-text="Sumber Terkait">Sumber Terkait</h2>
+          {% autoescape off %}
+            {{ course.syllabus.source }}  
+          {% endautoescape %}
+      </div>
+      
+      
+      <div id="right-sidebar" class="col-sm-2">
         
-        <ul class="nav flex-column nav-pills absolutey" class="sticky-top">
+        <ul class="nav flex-column nav-pills absolutey-right sticky-top" >
           <h4>Modul</h4>
 		  <li class="nav-item">
 			<a class="nav-link active" href="{% url 'course:course_detail' course.slug %}">Silabus</a>
@@ -77,21 +117,6 @@
 			</li>
 		  {% endfor %}
         </ul>
-      </div>
-      <!-- main content area -->
-	  <div class="col-sm-8">
-		<h1 id="table-of-contents-plugin-for-bootstrap">{{ course.course_name }}</h1>
-		<div class="placeholder-item placeholder-loading">
-			<img class="card-img-top lazy-image" src="{{ course.cover_image.url }}" alt="">
-		  </div>
-		<p>
-			{{ course.description }}
-		</p>
-		
-	  </div>
-      
-      <div id="right-sidebar" class="col-sm-2">
-        <nav id="toc" data-toggle="toc" class="sticky-top absolutey-right"></nav>
       </div>
     </div>
   </div>
