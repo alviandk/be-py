@@ -6,7 +6,7 @@ from .models import MemberStory
 def testimonial_list_view(request):
     context = {}
 
-    context['stories'] = MemberStory.objects.all()
+    context['stories'] = MemberStory.objects.filter(show=True)
 
     return render(request, 'testimonial/testimonial_list.html', context)
 

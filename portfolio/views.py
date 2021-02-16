@@ -6,7 +6,7 @@ from .models import Project
 def portfolio_list_view(request):
     context = {}
 
-    context['project_list'] = Project.objects.all()
+    context['project_list'] = Project.objects.filter(show=True)
 
     return render(request, 'portfolio/portfolio_list.html', context)
 

@@ -14,6 +14,10 @@ class MemberStory(models.Model):
     synopsis = models.CharField(max_length=128, default='')
     story = RichTextField()
     show = models.BooleanField(default=True)
+    order = models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.user.email}'s story"
+
+    class Meta:
+        ordering = ["order"]
