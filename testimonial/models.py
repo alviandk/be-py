@@ -13,6 +13,7 @@ class MemberStory(models.Model):
     )
     synopsis = models.CharField(max_length=128, default='')
     story = RichTextField()
+    show = models.BooleanField(default=True)
 
     def __str__(self):
         return f"{self.user.email}'s story"
