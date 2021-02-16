@@ -7,7 +7,7 @@ from .models import Course, Module
 def course_list_view(request):
     context = {}
 
-    context['course_list'] = Course.objects.all()
+    context['course_list'] = Course.objects.filter(show=True)
 
     return render(request, 'learn/learn_text_list.html', context)
 

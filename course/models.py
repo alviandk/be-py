@@ -13,6 +13,7 @@ class Course(models.Model):
     description = models.TextField()
     cover_image = models.ImageField()
     slug = models.SlugField()
+    show = models.BooleanField(default=True)
 
     def __str__(self):
         return self.course_name
