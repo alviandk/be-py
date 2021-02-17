@@ -81,7 +81,7 @@
                             </p> 
                             <p class="text-center">
                                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
-                                href="">Ajukan Bimbingan</a>
+                                href="{% url 'course:course_college_final_project' %}">Ajukan Bimbingan</a>
                             </p>   
                             
                         </div>
@@ -100,13 +100,13 @@
                             </p>
                             <p class="text-center">
                                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
-                                href="">Ikuti Kelas Kelompok</a>
+                                href="{% url 'course:course_group_list' %}">Ikuti Kelas Kelompok</a>
                             </p>   
                         </div>
                         <div class="tab-pane fade" id="nav-intensif" role="tabpanel" aria-labelledby="nav-intensif-tab">
                             <div class="mt-5 text-center">
                                 <i class="fas fa-8x fa-user-friends text-primary mb-4"></i>
-                                <h3 class="h4 mb-3">Mentoring Privat Intensif</h3>
+                                <h3 class="h4 mb-3">Mentoring Privat</h3>
                                 
                             </div>
                             <p class="mb-5">
@@ -120,7 +120,7 @@
                             </p>    
                             <p class="text-center">
                                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
-                                href="">Lihat Mentor</a>
+                                href="{% url 'course:course_mentor_list' %}">Lihat Mentor</a>
                             </p>
                         </div>
                       </div>

@@ -20,6 +20,48 @@ def course_detail_view(request, slug):
     return render(request, 'learn/learn_text_detail.html', context)
 
 
+def course_group_list_view(request):
+    context = {}
+
+    # context['course'] = get_object_or_404(Course, slug=slug)
+
+    return render(request, 'learn/group_list.html', context)
+
+
+def course_group_detail_view(request, slug):
+    context = {}
+
+    # context['course'] = get_object_or_404(Course, slug=slug)
+
+    return render(request, 'learn/group_detail.html', context)
+
+
+@login_required
+def course_college_final_project_view(request):
+    context = {}
+
+    # context['course'] = get_object_or_404(Course, slug=slug)
+
+    return render(request, 'learn/college_final_project.html', context)
+
+
+def course_mentor_list_view(request):
+    context = {}
+
+    # context['course'] = get_object_or_404(Course, slug=slug)
+
+    return render(request, 'learn/mentor_list.html', context)
+
+
+@login_required
+def course_mentoring_private_view(request):
+    context = {}
+
+    # context['course'] = get_object_or_404(Course, slug=slug)
+
+    return render(request, 'learn/mentoring_private.html', context)
+
+
 @login_required
 def module_detail_view(request, course_slug, slug):
     context = {}
