@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
     # 'allauth.socialaccount.providers.google', 
 
+    'bootstrap4',
+    
     'ckeditor',
     'ckeditor_uploader',
 

@@ -65,3 +65,18 @@ class ModuleContent(models.Model):
 
     def __str__(self):
         return f"module: {self.module.module_name}, content: {self.id}, "
+
+class CollegeProject(models.Model):
+    user = models.ForeignKey(
+            DplUser, 
+            on_delete=models.CASCADE, 
+            related_name='college_projects'
+    )
+
+    field_study = models.CharField(max_length=128, null=True)
+    university_name = models.CharField(max_length=128, null=True)
+    current_semester = models.PositiveIntegerField(null=True)
+
+
+    def __str__(self):
+        return f"{self.user.profile.name}'s colege project"

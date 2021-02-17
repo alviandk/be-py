@@ -29,11 +29,11 @@ class UserProfile(models.Model):
             related_name='profile'
     )
     name = models.CharField(max_length=128)
-    age_joined = models.PositiveIntegerField()
-    profile_picture = models.ImageField()
+    age_joined = models.PositiveIntegerField(null=True)
+    profile_picture = models.ImageField(null=True)
     # interest = models.ManyToManyField()
     # last_degree = models.ForeignKey(DplUser, related_name='profiles')
-    # city_domicile = models.ForeignKey(DplUser, related_name='profiles')
+    city_domicile = models.CharField(max_length=128, default='Depok')
 
     def __str__(self):
         return f"{self.user.email}'s profile"
@@ -53,3 +53,25 @@ class ProfesionalProfile(models.Model):
 
     def __str__(self):
         return f"{self.user.email}'s profile"
+
+
+class EducationProfile(models.Model):
+    user = models.ForeignKey(
+            DplUser, 
+            on_delete=models.CASCADE, 
+            related_name='educations'
+    )
+    COLLEGE_CHOICES = (
+        ('DPM', 'Diploma'),
+        ('SJN', 'Sarjana'),
+        ('MTR', 'Master'),
+        ('DTR', 'Doktor'),
+    )
+    college_level = models.CharField(max_length=8, null=True, choices=COLLEGE_CHOICES)
+    field_study = models.CharField(max_length=128, null=True)
+    university_name = models.CharField(max_length=128, null=True)
+    current_semester = models.PositiveIntegerField(null=True)
+
+
+    def __str__(self):
+        return f"{self.user.profile.name}'s education"
