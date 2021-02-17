@@ -46,10 +46,14 @@
                       <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-mandiri" role="tabpanel" aria-labelledby="nav-mandiri-tab">
                             <div class="mt-5 text-center">
-                                <i class="fas fa-8x fa-laptop-code text-primary mb-4"></i>
+                                <i class="fas fa-6x fa-laptop-code text-primary mb-4"></i>
                                 <h3 class="h4 mb-3">Belajar Online Mandiri</h3>
                                 
                             </div>
+                            <p class="text-center">
+                                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
+                                href="{% url 'course:course_list' %}">Mulai Belajar</a>
+                            </p>
                             <p class="mb-5">
                                 Menu belajar ini kami peruntukkan untuk kamu yang suka belajar mandiri. 
                                 Kami menyediakan berbagai pelajaran yang berkaitan dengan pemrograman python 
@@ -59,17 +63,18 @@
                                 library yang dibuat dengan python, dan lain lain.  
                                 Pelajaran yang kami sediakan gratis untuk yang sudah mendaftar. 
                             </p>    
-                            <p class="text-center">
-                                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
-                                href="{% url 'course:course_list' %}">Mulai Belajar</a>
-                            </p>
+                           
                         </div>
                         <div class="tab-pane fade" id="nav-kuliah" role="tabpanel" aria-labelledby="nav-kuliah-tab">
                             <div class="mt-5 text-center">
-                                <i class="fas fa-8x fa-graduation-cap text-primary mb-4"></i>
+                                <i class="fas fa-6x fa-graduation-cap text-primary mb-4"></i>
                                 <h3 class="h4 mb-3">Proyek Tugas Akhir Kuliah</h3>
                                 
                             </div>
+                            <p class="text-center">
+                                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
+                                href="{% url 'course:course_college_final_project' %}">Ajukan Bimbingan</a>
+                            </p>   
                             <p class="mb-3">
                                Menu belajar ini diperuntukkan bagi mahasiswa yang akan mengerjakan tugas akhir dengan pemrograman python.
                                Kami berperan sebagai pembimbing ekstra untuk kamu. Fokus kami lebih kepada membantu dalam mengerjakan 
@@ -79,17 +84,18 @@
                                Banyak dari mereka yang merasa terbantu, sehingga hasil aplikasi yang dibuat menjadi modal dalam mencari kerja.
                                </a>.                                 
                             </p> 
-                            <p class="text-center">
-                                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
-                                href="{% url 'course:course_college_final_project' %}">Ajukan Bimbingan</a>
-                            </p>   
+                            
                             
                         </div>
                         <div class="tab-pane fade" id="nav-kelompok" role="tabpanel" aria-labelledby="nav-kelompok-tab">
                             <div class="mt-5 text-center">
-                                <i class="fas fa-8x fa-users text-primary mb-4"></i>
+                                <i class="fas fa-6x fa-users text-primary mb-4"></i>
                                 <h3 class="h4 mb-3">Belajar Online Kelompok</h3>
                             </div>
+                            <p class="text-center">
+                                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
+                                href="{% url 'course:course_group_list' %}">Ikuti Kelas Kelompok</a>
+                            </p>  
                             <p class="mb-5">
                                 Menu belajar ini cocok bagi kamu yang lebih termotivasi untuk belajar bersama teman 
                                 dalam satu kelompok. Dalam satu kelompok maksimal terdapat 5 member yang mau belajar bersama.
@@ -98,17 +104,18 @@
                                 Disini kamu tidak hanya belajar mengcoding tapi juga hal-hal yang harus dipahami apabila
                                 menjadi seorang software developer ataupun software quality assurance.
                             </p>
-                            <p class="text-center">
-                                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
-                                href="{% url 'course:course_group_list' %}">Ikuti Kelas Kelompok</a>
-                            </p>   
+                             
                         </div>
                         <div class="tab-pane fade" id="nav-intensif" role="tabpanel" aria-labelledby="nav-intensif-tab">
                             <div class="mt-5 text-center">
-                                <i class="fas fa-8x fa-user-friends text-primary mb-4"></i>
+                                <i class="fas fa-6x fa-user-friends text-primary mb-4"></i>
                                 <h3 class="h4 mb-3">Mentoring Privat</h3>
                                 
                             </div>
+                            <p class="text-center">
+                                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
+                                href="{% url 'course:course_mentor_list' %}">Lihat Mentor</a>
+                            </p>
                             <p class="mb-5">
                                 Menu belajar ini kami peruntukkan untuk kamu yang suka belajar mandiri tapi juga 
                                 butuh bimbingan dari seorang mentor. 
@@ -118,10 +125,7 @@
                                 Mentor yang kami sediakan merupakan mentor yang sudah teruji di dalam kerasnya dunia kerja.
                                 Selain belajar skill teknis, dapatkan juga tips-tips dalam berkarir dari para mentor kami.
                             </p>    
-                            <p class="text-center">
-                                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
-                                href="{% url 'course:course_mentor_list' %}">Lihat Mentor</a>
-                            </p>
+                            
                         </div>
                       </div>
                       
