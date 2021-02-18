@@ -4,7 +4,7 @@ from django.db import models
 
 from ckeditor.fields import RichTextField
 
-from user.models import DplUser
+from user.models import DplUser, EducationProfile
 
 
 
@@ -72,11 +72,22 @@ class CollegeProject(models.Model):
             on_delete=models.CASCADE, 
             related_name='college_projects'
     )
+    current_education = models.ForeignKey(
+        EducationProfile, 
+        on_delete=models.CASCADE, 
+        related_name='college_projects'
+    )
 
-    field_study = models.CharField(max_length=128, null=True)
-    university_name = models.CharField(max_length=128, null=True)
-    current_semester = models.PositiveIntegerField(null=True)
-
+    PROJECT_TYPE_CHOICES = (
+        ('DS','Data Sains'),
+        ('WD','Web Development'),
+        ('QA','Quality Assurance')
+    )
+    
+    target_month = models.PositiveIntegerField(null=True)
+    target_year = models.PositiveIntegerField(null=True)
+    project_type = models.CharField(max_length=8, null=True, choices=PROJECT_TYPE_CHOICES)
+    project_idea = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.user.profile.name}'s colege project"

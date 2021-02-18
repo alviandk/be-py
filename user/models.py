@@ -33,7 +33,7 @@ class UserProfile(models.Model):
     profile_picture = models.ImageField(null=True)
     # interest = models.ManyToManyField()
     # last_degree = models.ForeignKey(DplUser, related_name='profiles')
-    city_domicile = models.CharField(max_length=128, default='Depok')
+    city_domicile = models.CharField(max_length=128, null=True)
 
     def __str__(self):
         return f"{self.user.email}'s profile"
@@ -67,10 +67,22 @@ class EducationProfile(models.Model):
         ('MTR', 'Master'),
         ('DTR', 'Doktor'),
     )
+
+    STATUS_CHOICES = (
+        ('WTG', 'WAITING'),
+        ('APR', 'Approved'),
+    )
+
     college_level = models.CharField(max_length=8, null=True, choices=COLLEGE_CHOICES)
     field_study = models.CharField(max_length=128, null=True)
     university_name = models.CharField(max_length=128, null=True)
     current_semester = models.PositiveIntegerField(null=True)
+    status = models.CharField(
+        max_length=8, 
+        null=True, 
+        choices=STATUS_CHOICES, 
+        default='WTG'
+    )
 
 
     def __str__(self):

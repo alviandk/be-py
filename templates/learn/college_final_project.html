@@ -23,13 +23,26 @@
 		<div class="container">
             <h1 class="text-center">Formulir Pengajuan Bimbingan</h1>
             <h1 class="mb-5 text-center">Proyek Tugas Akhir Kuliah</h1>
-            {% bootstrap_messages %}
+            
 			<div class="row">
 				<div class="col-md-6 offset-md-3">
+          {% bootstrap_messages %}
           <form action="{% url 'course:course_college_final_project' %}" method="post" class="form">
             {% csrf_token %}
             {% bootstrap_form user_profile_form %}
             {% bootstrap_form education_profile_form %}
+            {% bootstrap_field college_project_form.project_type %}
+            {% bootstrap_field college_project_form.project_idea %}
+              <h6>Target Sidang Tugas Akhir</h6>
+              <div class="row"> 
+                <div class="col">  
+                  {% bootstrap_field college_project_form.target_month %}
+                </div>
+                <div class="col">           
+                  {% bootstrap_field college_project_form.target_year %}
+                </div>
+              </div>
+            
             <div class="text-right">
               <button class="btn btn-primary btn-lg" type="submit">Kirim Pengajuan</button>
             </div>
