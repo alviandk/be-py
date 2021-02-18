@@ -3,6 +3,9 @@
 {% block title %}BE-PY | Para Mentor{% endblock %}
 
   {% block custom_css %}
+  <link href="https://alvian-personal-website.oss-ap-southeast-5.aliyuncs.com/static/css/showcase-project.css" rel="stylesheet">
+  <link href="https://alvian-personal-website.oss-ap-southeast-5.aliyuncs.com/static/css/showcase-detail.css" rel="stylesheet">
+
   
     <style>
       #mainNav {
@@ -29,20 +32,34 @@
       <div class="row">      
         <!-- main content area -->
         
-        {% for course in course_list %}
-            <div class="col-md-4 mb-5">
-              <div class="card h-100">
-                <div class="placeholder-item placeholder-loading">
-                  <img class="card-img-top lazy-image" src="{{ course.cover_image.url }}" alt="">
-                </div>
+        {% for mentor in mentors %}
+            <div class="col-lg-4">
+              <div class="card text-center">
+                
                 <div class="card-body">
-                  <h4 class="card-title">{{ course.course_name }}</h4>
-                  <p class="card-text">              
-                    {{ course.description }}
-                  </p>
-                </div>
-                <div class="card-footer">
-                  <a href="{% url 'course:course_detail' course.slug %}" class="btn btn-primary">Intip dikit!</a>
+                  <h5 class="card-title">{{ mentor.user.profile.name }}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">
+                    {{ mentor.experience.first.role }}
+                  </h6>
+                  <h6 class="card-subtitle mb-3 text-muted">
+                    {{ mentor.experience.first.company.name }}
+                  </h6>
+                  <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="{{ mentor.user.profile.profile_picture.url }}" alt="{{ mentor.user.profile.name }}">
+                    <div class="social-icons mb-5">
+                      <a href="{{ mentor.user.profesional_profile.linkedin }}">
+                        <i class="fab fa-linkedin-in"></i>
+                      </a>
+                      <a href="{{ mentor.user.profesional_profile.github }}">
+                        <i class="fab fa-github"></i>
+                      </a>
+                    </div>
+                    <a class="btn btn-primary" href="{% url 'course:course_mentor_detail' mentor.id  %}" role="button">
+                      Lihat Profil Mentor</a>
+                    
+                      
+                  </div>
+                  
                 </div>
               </div>
             </div>

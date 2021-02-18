@@ -93,7 +93,7 @@ def course_college_final_project_view(request):
 def course_mentor_list_view(request):
     context = {}
 
-    # context['course'] = get_object_or_404(Course, slug=slug)
+    context['mentors'] = Mentor.objects.all()
 
     return render(request, 'learn/mentor_list.html', context)
 

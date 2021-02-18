@@ -40,15 +40,14 @@
           </p>
           
           <div class="social-icons mb-3">
-            <a href="{{ story.user.profesional_profile.linkedin }}">
+            <a href="{{ mentor.user.profesional_profile.linkedin }}">
               <i class="fab fa-linkedin-in"></i>
             </a>
-            <a href="{{ story.user.profesional_profile.github }}">
+            <a href="{{ mentor.user.profesional_profile.github }}">
               <i class="fab fa-github"></i>
             </a>
           </div>
-          <a class="btn btn-primary btn-xl" 
-            href="{% url 'course:course_mentor_list' %}">Ajukan Privat Mentoring</a>
+          
       </div>
       </div>
       <div class="text-center">
@@ -77,26 +76,6 @@
               </div>
             </li>
           {% endfor %}
-          <!-- <li class="timeline-inverted">
-            <div class="timeline-image" style="background-color:#5094e3;">
-              <div class="mx-auto">
-                <h4 style="padding-top:0em;">Mekar Investama Sampoerna</h4>
-              </div>
-            </div>
-            <div class="timeline-panel">
-                <div class="timeline-heading">
-                    <h4>QA Engineer</h4>
-                    <h4 class="subheading">Mekar Investama Sampoerna</h4>
-                    <p class="text-muted">
-                      Fintech
-                      <br>Juni 2019 – Mei 2020
-                    </p>
-                    
-                    
-                </div>
-                
-            </div>
-          </li> -->
           
       </ul>
       <div class="text-center">
