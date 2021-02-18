@@ -98,6 +98,14 @@ def course_mentor_list_view(request):
     return render(request, 'learn/mentor_list.html', context)
 
 
+def course_mentor_detail_view(request, id):
+    context = {}
+
+    # context['course'] = get_object_or_404(Course, slug=slug)
+
+    return render(request, 'learn/mentor_detail.html', context)
+
+
 @login_required
 def course_mentoring_private_view(request):
     context = {}

@@ -15,8 +15,13 @@
 
 {% include 'components/navigation.html' with navbar_class="navbar navbar-expand-lg navbar-dark fixed-top" %}
 
-<section class="page-section" style="padding-top: 8em;">
+<section class="page-section" style="padding-top: 7em;">
   <div class="container">
+    <ol class="breadcrumb my-4">
+      <li class="breadcrumb-item"><a href="{% url 'static_page:home' %}">Beranda</a></li>            
+      <li class="breadcrumb-item" aria-current="page"><a href="{% url 'static_page:learn_type' %}">Belajar</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Belajar Mandiri</li>
+    </ol>
     <h2 class="mb-5">Daftar Pelajaran</h2>
 
     <div class="row">      

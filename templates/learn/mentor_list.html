@@ -15,33 +15,40 @@
 
 {% include 'components/navigation.html' with navbar_class="navbar navbar-expand-lg navbar-dark fixed-top" %}
 
-<section class="page-section" style="padding-top: 8em;">
+<section class="page-section" style="padding-top: 7em;">
   <div class="container">
+    <ol class="breadcrumb my-4">
+      <li class="breadcrumb-item"><a href="{% url 'static_page:home' %}">Beranda</a></li>            
+      <li class="breadcrumb-item" aria-current="page"><a href="{% url 'static_page:learn_type' %}">Belajar</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Mentoring Privat</li>
+    </ol>
     <h2 class="mb-5">Para Mentor</h2>
 
-    <div class="row">      
-      <!-- main content area -->
+    <div class="container">
       
-      {% for course in course_list %}
-          <div class="col-md-4 mb-5">
-            <div class="card h-100">
-              <div class="placeholder-item placeholder-loading">
-                <img class="card-img-top lazy-image" src="{{ course.cover_image.url }}" alt="">
-              </div>
-              <div class="card-body">
-                <h4 class="card-title">{{ course.course_name }}</h4>
-                <p class="card-text">              
-                  {{ course.description }}
-                </p>
-              </div>
-              <div class="card-footer">
-                <a href="{% url 'course:course_detail' course.slug %}" class="btn btn-primary">Intip dikit!</a>
+      <div class="row">      
+        <!-- main content area -->
+        
+        {% for course in course_list %}
+            <div class="col-md-4 mb-5">
+              <div class="card h-100">
+                <div class="placeholder-item placeholder-loading">
+                  <img class="card-img-top lazy-image" src="{{ course.cover_image.url }}" alt="">
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">{{ course.course_name }}</h4>
+                  <p class="card-text">              
+                    {{ course.description }}
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <a href="{% url 'course:course_detail' course.slug %}" class="btn btn-primary">Intip dikit!</a>
+                </div>
               </div>
             </div>
-          </div>
-        {% endfor %}
+          {% endfor %}
+      </div>
     </div>
-  </div>
 </section>
 {% include 'components/footer.html' %}
 

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}BE-PY | Belajar Mandiri | {{ course.course_name }} {% endblock %}
+{% block title %}BE-PY | Belajar Mandiri | {{ course.course_name }} : {{ module.module_name }} {% endblock %}
 
 {% block custom_js %}
 
@@ -60,8 +60,14 @@
   </style>
 {% include 'components/navigation.html' with navbar_class="navbar navbar-expand-lg navbar-dark fixed-top" %}
 
-<section class="page-section" style="padding-top: 8em;">
+<section class="page-section" style="padding-top: 7em;">
   <div class="container">
+    <ol class="breadcrumb my-4">
+      <li class="breadcrumb-item"><a href="{% url 'static_page:home' %}">Beranda</a></li>            
+      <li class="breadcrumb-item" aria-current="page"><a href="{% url 'static_page:learn_type' %}">Belajar</a></li>
+      <li class="breadcrumb-item" aria-current="page"><a href="{% url 'course:course_list' %}">Belajar Mandiri</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ course.course_name }} : {{ module.module_name }}</li>
+    </ol>
     <div class="row">
       <!-- sidebar, which will move to the top on a small screen -->
       <!-- main content area -->

@@ -19,8 +19,13 @@
 {% block content %}
 {% include 'components/navigation.html' with navbar_class="navbar navbar-expand-lg navbar-dark fixed-top" %}
 
-	<section class="page-section" style="padding-top: 8em;">
+	<section class="page-section" style="padding-top: 7em;">
 		<div class="container">
+      <ol class="breadcrumb my-4">
+        <li class="breadcrumb-item"><a href="{% url 'static_page:home' %}">Beranda</a></li>            
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'static_page:learn_type' %}">Belajar</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Tugas Akhir Kuliah</li>
+      </ol>
             <h1 class="text-center">Formulir Pengajuan Bimbingan</h1>
             <h1 class="mb-5 text-center">Proyek Tugas Akhir Kuliah</h1>
             
