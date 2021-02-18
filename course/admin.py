@@ -1,6 +1,12 @@
 from django.contrib import admin
 
-from .models import CollegeProject, Course, Module, ModuleContent, Syllabus
+from .models import (
+    CollegeProject, Company, Course, 
+    Education, Experience,
+    LegalLogo,
+    Mentor, Module, ModuleContent, 
+    School, Syllabus
+)
 
 
 class ModuleInline(admin.StackedInline):
@@ -25,4 +31,17 @@ class ModuleAdmin(admin.ModelAdmin):
 @admin.register(CollegeProject)
 class CollegeProjectAdmin(admin.ModelAdmin):
     pass
-    
+
+
+class EducationInline(admin.StackedInline):
+    model = Education
+
+class ExperienceInline(admin.StackedInline):
+    model = Experience
+
+admin.site.register(Mentor)
+admin.site.register(Education)
+admin.site.register(Experience)
+admin.site.register(LegalLogo)
+admin.site.register(School)
+admin.site.register(Company)

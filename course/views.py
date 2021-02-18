@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 
 from .forms import CollegeProjectForm
-from .models import Course, Module
+from .models import Course, Module, Mentor
 from user.forms import EducationProfileForm, UserProfileForm
 from user.models import EducationProfile, UserProfile
 
@@ -101,7 +101,7 @@ def course_mentor_list_view(request):
 def course_mentor_detail_view(request, id):
     context = {}
 
-    # context['course'] = get_object_or_404(Course, slug=slug)
+    context['mentor'] = get_object_or_404(Mentor, id=id)
 
     return render(request, 'learn/mentor_detail.html', context)
 
