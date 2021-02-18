@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import DplUser, ProfesionalProfile, UserProfile
+from .models import DplUser, EducationProfile, ProfesionalProfile, UserProfile
 from testimonial.models import MemberStory
 
 
@@ -16,8 +16,14 @@ class MemberStoryInline(admin.StackedInline):
     max_num = 1
     model = MemberStory
 
+
+class EducationProfileInline(admin.StackedInline):
+    max_num = 1
+    model = EducationProfile
+
+
 class CustomUserAdmin(UserAdmin):
-    inlines = UserAdmin.inlines + [UserProfileInline, ProfesionalProfileInline]
+    inlines = UserAdmin.inlines + [UserProfileInline, ProfesionalProfileInline, EducationProfileInline]
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = DplUser

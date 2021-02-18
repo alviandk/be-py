@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Course, Module, ModuleContent, Syllabus
+from .models import CollegeProject, Course, Module, ModuleContent, Syllabus
 
 
 class ModuleInline(admin.StackedInline):
@@ -22,3 +22,7 @@ class ModuleAdmin(admin.ModelAdmin):
     inlines = [ModuleContentInline,]
     prepopulated_fields = {"slug": ("module_name",)}
 
+@admin.register(CollegeProject)
+class CollegeProjectAdmin(admin.ModelAdmin):
+    pass
+    
