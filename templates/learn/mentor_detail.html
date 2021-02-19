@@ -72,8 +72,8 @@
                     <p class="text-muted">
                       {{ experience.company.field }}  
                     <br>
-                    {{ experience.company.start_date | date:"F Y" }} - 
-                    {% if experience.company.end_date %} {{ experience.company.end_date | date:"F Y" }} {% else %} Present {% endif %}
+                    {{ experience.start_date | date:"F Y" }} - 
+                    {% if experience.end_date %} {{ experience.end_date | date:"F Y" }} {% else %} Present {% endif %}
                     </p>
                   </div>
                   
