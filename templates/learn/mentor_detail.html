@@ -70,7 +70,7 @@
                     <h4>{{ experience.role }}</h4>
                     <h4 class="subheading">{{ experience.company.name }}</h4>
                     <p class="text-muted">
-                      {{ experience.company.field }}  
+                      Bidang perusahaan: <b>{{ experience.company.field }}</b>
                     <br>
                     {{ experience.start_date | date:"F Y" }} - 
                     {% if experience.end_date %} {{ experience.end_date | date:"F Y" }} {% else %} Sekarang {% endif %}
