@@ -75,20 +75,18 @@
       <!-- sidebar, which will move to the top on a small screen -->
       <!-- main content area -->
       
-      <!-- <div id="left-sidebar" class="col-sm-2">
+      <div id="left-sidebar" class="col-sm-2">
         <h4>Daftar Isi</h4>
         <nav id="toc" data-toggle="toc" class="sticky-top absolutey"></nav>
-      </div> -->
+      </div>
       
       <div class="col-sm-8">
-        <h1>{{ course.course_name }}</h1>
+        <h1>Silabus: {{ course.course_name }}</h1>
         <p>
           {{ course.description }}
         </p>
-        <div class="placeholder-item placeholder-loading mb-3">
-          <img class="card-img-top lazy-image" src="{{ course.cover_image.url }}" alt="">
-        </div>
-        <h2 data-toc-text="Tujuan">Tujuan Pembelajaran </h2>
+        
+        <h2 data-toc-text="Materi">Materi Pembelajaran</h2>
           {% autoescape off %}
             {{ course.syllabus.objectives }}  
           {% endautoescape %}
@@ -100,16 +98,14 @@
           {% autoescape off %}
             {{ course.syllabus.prerequisites }}  
           {% endautoescape %}
-        <h2 data-toc-text="Versi">Info Versi</h2>
-        <ul class="">
-          <li>Versi: {{ course.syllabus.version }} </li>
-          <li>Perubahan Terakhir: {{ course.syllabus.last_change|date:"d F Y" }}</li>
-          <li>Penulis: {{ course.syllabus.author.profile.name }}</li>
-        </ul>
-        <h2 data-toc-text="Sumber Terkait">Sumber Terkait</h2>
+        <!-- <h2 data-toc-text="Sumber Terkait">Sumber Terkait</h2>
           {% autoescape off %}
             {{ course.syllabus.source }}  
-          {% endautoescape %}
+          {% endautoescape %} -->
+        <div class="text-center">
+          <a class="btn btn-primary btn-xl" 
+            href="">Bergabung ke Kelas Ini</a>
+        </div>
       </div>
       
       
@@ -129,6 +125,7 @@
 		  {% endfor %}
         </ul>
       </div> -->
+      
     </div>
   </div>
 </section>

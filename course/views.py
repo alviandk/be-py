@@ -12,7 +12,10 @@ from user.models import EducationProfile, UserProfile
 def course_list_view(request):
     context = {}
 
-    context['course_list'] = Course.objects.filter(show=True)
+    context['course_list'] = Course.objects.filter(
+        show=True,
+        learn_type='MDR'
+    )
 
     return render(request, 'learn/learn_text_list.html', context)
 
@@ -20,7 +23,11 @@ def course_list_view(request):
 def course_detail_view(request, slug):
     context = {}
 
-    context['course'] = get_object_or_404(Course, slug=slug)
+    context['course'] = get_object_or_404(
+        Course, 
+        slug=slug,
+        learn_type='MDR'
+    )
 
     return render(request, 'learn/learn_text_detail.html', context)
 
@@ -28,7 +35,10 @@ def course_detail_view(request, slug):
 def course_group_list_view(request):
     context = {}
 
-    # context['course'] = get_object_or_404(Course, slug=slug)
+    context['course_list'] = Course.objects.filter(
+        show=True,
+        learn_type='GRP'
+    )
 
     return render(request, 'learn/group_list.html', context)
 
@@ -36,7 +46,11 @@ def course_group_list_view(request):
 def course_group_detail_view(request, slug):
     context = {}
 
-    # context['course'] = get_object_or_404(Course, slug=slug)
+    context['course'] = get_object_or_404(
+        Course, 
+        slug=slug, 
+        learn_type='GRP'
+    )
 
     return render(request, 'learn/group_detail.html', context)
 
