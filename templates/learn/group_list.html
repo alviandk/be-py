@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}BE-PY | Kelompok Belajar yang Tersedia{% endblock %}
+{% block title %}BE-PY | Belajar Kelompok{% endblock %}
 
   {% block custom_css %}
   
@@ -30,9 +30,6 @@
       {% for course in course_list %}
           <div class="col-md-4 mb-5">
             <div class="card h-100">
-              <div class="placeholder-item placeholder-loading">
-                <img class="card-img-top lazy-image" src="{{ course.cover_image.url }}" alt="">
-              </div>
               <div class="card-body">
                 <h4 class="card-title">{{ course.course_name }}</h4>
                 <p class="card-text">              
@@ -40,7 +37,7 @@
                 </p>
               </div>
               <div class="card-footer">
-                <a href="{% url 'course:course_detail' course.slug %}" class="btn btn-primary">Intip dikit!</a>
+                <a href="{% url 'course:course_detail' course.slug %}" class="btn btn-primary">Lihat silabus</a>
               </div>
             </div>
           </div>

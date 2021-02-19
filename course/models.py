@@ -13,13 +13,18 @@ STATUS_CHOICES = (
     ('RJT', 'Rejected'),
 )
 
+LEARN_CHOICES = (
+    ('MDR', 'Mandiri'),
+    ('GRP', 'Group'),
+)
 
 class Course(models.Model):
     course_name = models.CharField(max_length=256)
     description = models.TextField()
-    cover_image = models.ImageField()
+    cover_image = models.ImageField(null=True, blank=True)
     slug = models.SlugField()
     show = models.BooleanField(default=True)
+    learn_type = models.CharField(max_length=8, default='MDR', choices=LEARN_CHOICES)
 
     def __str__(self):
         return self.course_name
