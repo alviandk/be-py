@@ -2,7 +2,7 @@ from django import forms
 from django.forms import ModelForm
 from django.utils import timezone
 
-from .models import CollegeProject
+from .models import CollegeProject, MentoringRequest
 
 
 MONTH_CHOICES = [
@@ -49,3 +49,14 @@ class CollegeProjectForm(ModelForm):
             'project_idea': 'Bila belum ada ide atau tema, boleh dikosongi',
         }
 
+
+class MentoringRequestForm(ModelForm):
+    class Meta:
+        model = MentoringRequest
+        fields = ('self_pitching',)
+        labels = {
+            'self_pitching': 'Ceritakan kenapa kamu mau dimentori',
+        }
+        help_texts = {
+            'self_pitching': 'Cerita kamu akan menentukan apakah mentor mau menerima permintaan mentoring darimu',
+        }

@@ -7,6 +7,12 @@ from ckeditor.fields import RichTextField
 from user.models import DplUser, EducationProfile
 
 
+STATUS_CHOICES = (
+    ('WTG', 'Waiting'),
+    ('APR', 'Approved'),
+    ('RJT', 'Rejected'),
+)
+
 
 class Course(models.Model):
     course_name = models.CharField(max_length=256)
@@ -88,6 +94,12 @@ class CollegeProject(models.Model):
     target_year = models.PositiveIntegerField(null=True)
     project_type = models.CharField(max_length=8, null=True, choices=PROJECT_TYPE_CHOICES)
     project_idea = models.TextField(null=True, blank=True)
+    status = models.CharField(
+        max_length=8, 
+        null=True, 
+        choices=STATUS_CHOICES, 
+        default='WTG'
+    )
 
     def __str__(self):
         return f"{self.user.profile.name}'s colege project"
@@ -156,3 +168,27 @@ class Mentor(models.Model):
 
     def __str__(self):
         return f"{self.user.profile.name} as mentor"
+
+
+class MentoringRequest(models.Model):
+    user = models.ForeignKey(
+        DplUser, 
+        on_delete=models.CASCADE, 
+        related_name='mentoring_requests'
+    )
+    mentor = models.ForeignKey(
+        Mentor, 
+        on_delete=models.CASCADE, 
+        related_name='mentoring_requests'
+    )
+
+    self_pitching = models.TextField()
+    status = models.CharField(
+        max_length=8, 
+        null=True, 
+        choices=STATUS_CHOICES, 
+        default='WTG'
+    )
+
+    def __str__(self):
+        return f"{self.user.profile.name}'s mentoring request"

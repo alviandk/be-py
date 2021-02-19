@@ -4,7 +4,7 @@ from .models import (
     CollegeProject, Company, Course, 
     Education, Experience,
     LegalLogo,
-    Mentor, Module, ModuleContent, 
+    Mentor, MentoringRequest, Module, ModuleContent, 
     School, Syllabus
 )
 
@@ -45,3 +45,4 @@ admin.site.register(Experience)
 admin.site.register(LegalLogo)
 admin.site.register(School)
 admin.site.register(Company)
+admin.site.register(MentoringRequest)

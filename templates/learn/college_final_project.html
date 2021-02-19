@@ -30,9 +30,21 @@
             <h1 class="mb-5 text-center">Proyek Tugas Akhir Kuliah</h1>
             
 			<div class="row">
+        {% if waiting_project_approval %}
+        <div class="col-md-8 offset-md-2">
+          <div class="jumbotron">
+            <h4 >
+              Pengajuan bimbingan tugas akhir kamu masih dalam proses menunggu approval.<br>
+              Kami akan menghubungi kamu, setelah kami selesai mereview.
+            </h4>
+
+          </div>
+          
+        </div>
+        {% else %}
 				<div class="col-md-6 offset-md-3">
-          {% bootstrap_messages %}
           <form action="{% url 'course:course_college_final_project' %}" method="post" class="form">
+            {% bootstrap_messages %}
             {% csrf_token %}
             {% bootstrap_form user_profile_form %}
             {% bootstrap_form education_profile_form %}
@@ -48,13 +60,16 @@
                 </div>
               </div>
             
+            {% if not hidden_button %}
             <div class="text-right">
               <button class="btn btn-primary btn-lg" type="submit">Kirim Pengajuan</button>
             </div>
+            {% endif %}
           </form>
                     
               
 				</div>             
+        {% endif %}
 			</div>
 			
 		</div>

@@ -1,9 +1,10 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 
-from .forms import CollegeProjectForm
-from .models import Course, Module, Mentor
+from .forms import CollegeProjectForm, MentoringRequestForm
+from .models import CollegeProject, Course, Module, Mentor, MentoringRequest
 from user.forms import EducationProfileForm, UserProfileForm
 from user.models import EducationProfile, UserProfile
 
@@ -42,6 +43,7 @@ def course_group_detail_view(request, slug):
 
 @login_required
 def course_college_final_project_view(request):
+    context = {}
     
     user_profile_instance, created = UserProfile.objects.get_or_create(user=request.user)
 
@@ -68,24 +70,30 @@ def course_college_final_project_view(request):
             new_college_project_form.user = request.user
             new_college_project_form.current_education = education_profile_instance
             new_college_project_form.save()
-            from django.contrib import messages
+            context['hidden_button'] = True
+            
             messages.success(
                 request, 
-                'Pengajuan bimbingan tugas akhir kamu sudah kami terima! Setelah mereview, \n kami akan menghubungi kamu.'
+                'Pengajuan bimbingan tugas akhir kamu sudah kami terima! Kami akan menghubungi kamu, setelah kami selesai mereview.'
             )
 
     # If this is a GET (or any other method) create the default form.
     else:
         user_profile_form = UserProfileForm(instance=user_profile_instance)
         education_profile_form = EducationProfileForm(instance=education_profile_instance)
-        
         college_project_form = CollegeProjectForm(initial={'target_month': timezone.now().date().month + 2})
 
-    context = {
-        'user_profile_form': user_profile_form,
-        'education_profile_form': education_profile_form,
-        'college_project_form': college_project_form
-    }
+        waiting_project_approval = CollegeProject.objects.filter(
+            user=request.user, 
+            status='WTG',
+        )
+        if waiting_project_approval:
+            context['waiting_project_approval'] = True
+
+    
+    context['user_profile_form'] = user_profile_form,
+    context['education_profile_form'] = education_profile_form,
+    context['college_project_form'] = college_project_form
 
     return render(request, 'learn/college_final_project.html', context)
 
@@ -98,6 +106,7 @@ def course_mentor_list_view(request):
     return render(request, 'learn/mentor_list.html', context)
 
 
+@login_required
 def course_mentor_detail_view(request, id):
     context = {}
 
@@ -107,10 +116,45 @@ def course_mentor_detail_view(request, id):
 
 
 @login_required
-def course_mentoring_private_view(request):
+def course_mentoring_private_view(request, id):
     context = {}
+    user_profile_instance, created = UserProfile.objects.get_or_create(user=request.user)
 
-    # context['course'] = get_object_or_404(Course, slug=slug)
+    # If this is a POST request then process the Form data
+    if request.method == 'POST':
+
+        # Create a form instance and populate it with data from the request (binding):
+        user_profile_form = UserProfileForm(request.POST, instance=user_profile_instance)
+        mentoring_request_form = MentoringRequestForm(request.POST)
+
+        if user_profile_form.is_valid():
+            # process the data in form.cleaned_data as required (here we just write it to the model due_back field)
+            user_profile_form.save()
+            mentoring_request = mentoring_request_form.save(commit=False)
+            mentoring_request.mentor_id = id
+            mentoring_request.user = request.user
+            mentoring_request.save()
+
+            context['hidden_button'] = True
+            
+            messages.success(
+                request, 
+                'Pengajuan mentoring private dari kamu sudah kami terima! \n Kami akan menghubungi kamu, setelah mentor merespon.'
+            )
+    else:
+        user_profile_form = UserProfileForm(instance=user_profile_instance)
+        mentoring_request_form = MentoringRequestForm()
+        waiting_mentoring_requests = MentoringRequest.objects.filter(
+            user=request.user, 
+            status='WTG',
+            mentor_id=id
+        )
+        if waiting_mentoring_requests:
+            context['waiting_response'] = True
+
+    context['mentor'] = get_object_or_404(Mentor, id=id)
+    context['user_profile_form'] = user_profile_form
+    context['mentoring_request_form'] = mentoring_request_form
 
     return render(request, 'learn/mentoring_private.html', context)
 

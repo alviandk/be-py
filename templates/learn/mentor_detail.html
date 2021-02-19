@@ -47,6 +47,10 @@
               <i class="fab fa-github"></i>
             </a>
           </div>
+          <div class="text-center">
+            <a class="btn btn-primary btn-xl" 
+                href="{% url 'course:course_mentoring_private' mentor.id %}">Ajukan Privat Mentoring</a>
+          </div>
           
       </div>
       </div>
@@ -110,7 +114,7 @@
       </ul>
       <div class="text-center">
         <a class="btn btn-primary btn-xl" 
-            href="{% url 'course:course_mentor_list' %}">Ajukan Privat Mentoring</a>
+            href="{% url 'course:course_mentoring_private' mentor.id %}">Ajukan Privat Mentoring</a>
       </div>
     </div>
 
