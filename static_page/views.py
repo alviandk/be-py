@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from .forms import ContactMessageForm
+from .models import AboutUs
 
 from be_py.utils import sample_from_models
 from portfolio.models import Project
@@ -36,3 +37,13 @@ def learn_type_view(request):
     context = {}
 
     return render(request, 'static_page/learn-type.html', context)
+
+def about_view(request):
+    context = {}
+
+    try:
+        context['content'] = AboutUs.objects.first().content
+    except:
+        context['content'] = ""
+
+    return render(request, 'static_page/about.html', context)
