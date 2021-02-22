@@ -3,6 +3,7 @@ from django.contrib import admin
 from .models import (
     CollegeProject, Company, Course, 
     Education, Experience,
+    GroupLearnRegister,
     LegalLogo,
     Mentor, MentoringRequest, Module, ModuleContent, 
     School, Syllabus
@@ -46,3 +47,4 @@ admin.site.register(LegalLogo)
 admin.site.register(School)
 admin.site.register(Company)
 admin.site.register(MentoringRequest)
+admin.site.register(GroupLearnRegister)

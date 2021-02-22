@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 
 from .forms import CollegeProjectForm, MentoringRequestForm
-from .models import CollegeProject, Course, Module, Mentor, MentoringRequest
+from .models import CollegeProject, Course, GroupLearnRegister, Module, Mentor, MentoringRequest
 from user.forms import EducationProfileForm, UserProfileForm
 from user.models import EducationProfile, UserProfile
 
@@ -53,6 +53,50 @@ def course_group_detail_view(request, slug):
     )
 
     return render(request, 'learn/group_detail.html', context)
+
+
+@login_required
+def course_group_register_view(request, slug):
+    context = {}
+
+    course = get_object_or_404(
+        Course, 
+        slug=slug,
+        learn_type='GRP'
+    )
+    user_profile_instance, created = UserProfile.objects.get_or_create(user=request.user)
+
+    if request.method == 'POST':
+
+        # Create a form instance and populate it with data from the request (binding):
+        user_profile_form = UserProfileForm(request.POST, instance=user_profile_instance)
+
+        if user_profile_form.is_valid():
+            # process the data in form.cleaned_data as required (here we just write it to the model due_back field)
+            user_profile_form.save()
+
+            context['hidden_button'] = True
+            GroupLearnRegister.objects.create(user=request.user, course=course)
+            
+            messages.success(
+                request, 
+                f'Kamu sudah terdaftar untuk belajar kelompok {course.course_name}! \n Kami akan menghubungi kamu, mengenai detail pembelajaran.'
+            )
+    else:
+        user_profile_form = UserProfileForm(instance=user_profile_instance)
+        
+        waiting_course_register = GroupLearnRegister.objects.filter(
+            user=request.user, 
+            status='WTG',
+            course=course
+        )
+        if waiting_course_register:
+            context['waiting_response'] = True
+
+    context['course'] = course
+    context['user_profile_form'] = user_profile_form
+
+    return render(request, 'learn/group_register.html', context)
 
 
 @login_required
@@ -141,7 +185,7 @@ def course_mentoring_private_view(request, id):
         user_profile_form = UserProfileForm(request.POST, instance=user_profile_instance)
         mentoring_request_form = MentoringRequestForm(request.POST)
 
-        if user_profile_form.is_valid():
+        if user_profile_form.is_valid() and mentoring_request_form.is_valid():
             # process the data in form.cleaned_data as required (here we just write it to the model due_back field)
             user_profile_form.save()
             mentoring_request = mentoring_request_form.save(commit=False)

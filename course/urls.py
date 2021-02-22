@@ -8,6 +8,7 @@ app_name = 'course'
 urlpatterns = [
     path('', views.course_list_view, name='course_list'),
     path('course-group-list/', views.course_group_list_view, name='course_group_list'),
+    path('course-group-register/<slug>/', views.course_group_register_view, name='course_group_register'), 
     path('course-group-detail/<slug>/', views.course_group_detail_view, name='course_group_detail'), 
     path('course-mentor-list/', views.course_mentor_list_view, name='course_mentor_list'),
     path('course-mentor-detail/<int:id>/', views.course_mentor_detail_view, name='course_mentor_detail'),

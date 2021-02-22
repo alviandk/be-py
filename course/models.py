@@ -197,3 +197,27 @@ class MentoringRequest(models.Model):
 
     def __str__(self):
         return f"{self.user.profile.name}'s mentoring request"
+
+
+class GroupLearnRegister(models.Model):
+    user = models.ForeignKey(
+        DplUser, 
+        on_delete=models.CASCADE, 
+        related_name='group_learns'
+    )
+
+    course = models.ForeignKey(
+        Course, 
+        on_delete=models.CASCADE, 
+        related_name='group_learns'
+    )
+
+    status = models.CharField(
+        max_length=8, 
+        null=True, 
+        choices=STATUS_CHOICES, 
+        default='WTG'
+    )
+
+    def __str__(self):
+        return f"{self.user.profile.name}'s group learn register"

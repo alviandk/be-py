@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+
+{% block title %}Be-Py | Formulir Pendaftaran Belajar Berkelompok{% endblock title %}
+
+
+  {% block custom_css %}
+  <link href="https://alvian-personal-website.oss-ap-southeast-5.aliyuncs.com/static/css/showcase-project.css" rel="stylesheet">
+  <link href="https://alvian-personal-website.oss-ap-southeast-5.aliyuncs.com/static/css/showcase-detail.css" rel="stylesheet">
+
+  <style>
+    #mainNav {
+        background-color: #3775a9;
+    }
+  </style>
+  {% endblock custom_css %}
+
+{% block content %}
+{% include 'components/navigation.html' with navbar_class="navbar navbar-expand-lg navbar-dark fixed-top" %}
+
+	<section class="page-section" style="padding-top: 7em;">
+		<div class="container">
+      <ol class="breadcrumb my-4">
+        <li class="breadcrumb-item"><a href="{% url 'static_page:home' %}">Beranda</a></li>            
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'static_page:learn_type' %}">Belajar</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'course:course_group_list'  %}">Belajar Berkelompok</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="{% url 'course:course_group_detail' course.slug  %}">{{ course.course_name }}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Pendaftaran Belajar Kelompok</li>
+      </ol>
+            <h1 class="text-center"> Formulir Pendaftaran</h1>
+            <h1 class="text-center">Belajar Berkelompok</h1>
+            <h2 class="mb-5 text-center">Materi: {{ course.course_name }}</h2>
+			<div class="row">
+        {% if waiting_response %}
+        <div class="col-md-8 offset-md-2">
+          <h4 class="jumbotron">Kamu sudah mendaftar untuk belajar kelompok dengan materi {{ course.course_name }}.</h4>
+        </div>
+        {% else %}
+        <div class="col-md-6 offset-md-3">
+         
+          <form action="{% url 'course:course_group_register' course.slug %}" method="post" class="form">
+            {% bootstrap_messages %}
+            {% csrf_token %}
+            {% bootstrap_form user_profile_form %}
+
+            {% if not hidden_button %}
+            <div class="text-right">
+              <button class="btn btn-primary btn-lg" type="submit">Daftar</button>
+            </div>
+            {% endif %}
+				  </form>
+        {% endif %}
+              
+				</div>             
+			</div>
+			
+		</div>
+	</section>
+
+{% include 'components/footer.html' %}
+{% endblock %}
+
+{% block custom_js %}
+<!-- Custom JavaScript for this theme -->
+<script src="{% static 'js/be-py-scripts.js' %}"></script>
+
+{% if hidden_button %}
+<script>
+    function reload_page() {
+        // Simulate an HTTP redirect:
+        window.location.replace("{% url 'course:course_group_register' course.slug %}");
+    }
+    setTimeout(reload_page, 1500);
+</script>    
+{% endif %}
+
+
+{% endblock custom_js %}
