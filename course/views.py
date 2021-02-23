@@ -149,8 +149,8 @@ def course_college_final_project_view(request):
             context['waiting_project_approval'] = True
 
     
-    context['user_profile_form'] = user_profile_form,
-    context['education_profile_form'] = education_profile_form,
+    context['user_profile_form'] = user_profile_form
+    context['education_profile_form'] = education_profile_form
     context['college_project_form'] = college_project_form
 
     return render(request, 'learn/college_final_project.html', context)
