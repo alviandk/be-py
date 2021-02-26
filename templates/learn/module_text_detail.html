@@ -2,9 +2,16 @@
 {% load static %}
 {% block title %}BE-PY | Belajar Mandiri | {{ course.course_name }} : {{ module.module_name }} {% endblock %}
 
-{% block custom_js %}
+{% block custom_css %}
+<link href="{% static 'prism/solarized_dark.css' %}" rel="stylesheet">
+<script src="{% static 'prism/highlight.pack.js' %}"></script>
 
-  {% endblock custom_js %}
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+  {% endblock custom_css %}
+
+  
   
 {% block content %}
 <style>nav[data-toggle="toc"] {
