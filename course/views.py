@@ -164,7 +164,6 @@ def course_mentor_list_view(request):
     return render(request, 'learn/mentor_list.html', context)
 
 
-@login_required
 def course_mentor_detail_view(request, id):
     context = {}
 
